@@ -1,124 +1,204 @@
-// Transparent mentor matching.
+// Mentor matching — plain, deterministic code. No AI is involved.
 //
-// Fairness rule: scoring uses ONLY job-relevant traits (field, role, company,
-// career stage, topics, path/major). It never reads `name`, and the data has no
-// gender, ethnicity, age, or photo fields to read.
+// Fairness rule: scoring uses ONLY job-relevant traits. It never reads
+// `display_name` or any demographic field (none exist in the data model).
 
+import { SESSIONS_PER_MONTH } from "./labels";
 import type {
-  CareerStage,
+  Factor,
+  FactorPoints,
+  MatchedFactor,
   MatchResult,
   Mentor,
-  ScoreBreakdown,
-  Student,
+  Stage,
+  StudentProfile,
 } from "./types";
+import { HELP_TYPES } from "./types";
+import { HELP_LABELS } from "./labels";
 
 export const MAX_RESULTS = 3;
-// Extra points (on top of 100) for mentors with spare capacity.
-export const LOAD_BALANCE_MAX = 5;
+// Largest score reduction for a mentor who is completely booked.
+export const FAIRNESS_PENALTY = 0.15;
 
-type Weights = Omit<ScoreBreakdown, "loadBalance">;
-
-// Max points per factor for each career stage. Each row sums to 100.
-export const STAGE_WEIGHTS: Record<CareerStage, Weights> = {
-  exploring: { field: 30, roleCompany: 5, stage: 15, topics: 20, pathMajor: 30 },
-  targeting: { field: 30, roleCompany: 15, stage: 15, topics: 20, pathMajor: 20 },
-  applying: { field: 15, roleCompany: 35, stage: 15, topics: 25, pathMajor: 10 },
-  interviewing: { field: 15, roleCompany: 35, stage: 20, topics: 25, pathMajor: 5 },
+// Points per factor by stage (each row sums to 100).
+export const STAGE_WEIGHTS: Record<Stage, FactorPoints> = {
+  exploring: { field: 40, role: 10, company: 5, path: 35, helpFit: 10 },
+  targeting_role: { field: 30, role: 30, company: 10, path: 25, helpFit: 5 },
+  applying: { field: 15, role: 30, company: 30, path: 15, helpFit: 10 },
+  interviewing: { field: 10, role: 30, company: 35, path: 10, helpFit: 15 },
 };
 
-// Words too common to signal a real similarity.
-const STOPWORDS = new Set([
-  "a", "an", "and", "the", "of", "to", "in", "on", "for", "with", "from", "into",
-  "who", "that", "is", "was", "at", "as", "by", "or", "turned", "moved", "switched",
-  "started", "degree", "major", "senior", "junior", "staff", "lead", "now", "then",
-]);
+// Fields that are close enough to earn half the field points.
+const RELATED_FIELDS: [string, string][] = [
+  ["Software Engineering", "Data Science"],
+  ["Software Engineering", "Product Management"],
+  ["Product Management", "Data Science"],
+  ["Product Management", "UX Design"],
+  ["Product Management", "Marketing"],
+  ["UX Design", "UX Research"],
+  ["UX Research", "Marketing"],
+  ["UX Research", "Product Management"],
+  ["Data Science", "Finance"],
+  ["Data Science", "Healthcare"],
+  ["Marketing", "Nonprofit"],
+  ["Education", "Nonprofit"],
+  ["Education", "Healthcare"],
+];
 
 const norm = (s: string) => s.trim().toLowerCase();
 
-function tokens(text: string): Set<string> {
+const STOPWORDS = new Set(["a", "an", "and", "of", "the", "in", "at", "for", "senior", "junior", "lead", "staff", "associate"]);
+// Titles that mean the same thing for our purposes.
+const SYNONYMS: Record<string, string> = {
+  developer: "engineer",
+  swe: "engineer",
+  analyst: "analyst",
+  designer: "designer",
+  pm: "product",
+};
+
+function words(text: string): Set<string> {
   return new Set(
     norm(text)
       .split(/[^a-z0-9]+/)
-      .filter((w) => w.length > 1 && !STOPWORDS.has(w)),
+      .filter((w) => w.length > 1 && !STOPWORDS.has(w))
+      .map((w) => SYNONYMS[w] ?? w),
   );
 }
 
-// Each factor returns 0..1; the stage weights turn that into points.
+// ---- Step 1: hard filters --------------------------------------------------
 
-function fieldScore(student: Student, mentor: Mentor): number {
-  if (norm(student.field) === "not sure") return 0.5; // neutral, doesn't favor anyone
-  return norm(student.field) === norm(mentor.field) ? 1 : 0;
+// Returns the reason a mentor is filtered out, or null if they qualify.
+export function filterReason(student: StudentProfile, m: Mentor): string | null {
+  if (!m.opted_in) return "not opted in";
+  if (m.status === "paused") return "paused";
+  if (!m.stages.includes(student.stage)) return "does not help this stage";
+  if (!student.help_wanted.some((h) => m.help_types.includes(h))) return "offers none of the help wanted";
+  if (!m.meeting_types.includes(student.meeting_type)) return "does not offer this meeting type";
+  if (student.meeting_type === "group" && (m.group_size_max ?? 0) < student.group_size) return "group too large";
+  if (!m.cadence_options.includes(student.cadence)) return "does not offer this schedule";
+  if (student.months > m.max_engagement_months && student.cadence !== "one_time") return "plan too long";
+  if (m.monthly_limit - m.requests_this_month < SESSIONS_PER_MONTH[student.cadence]) return "not enough sessions left";
+  return null;
 }
 
-function roleCompanyScore(student: Student, mentor: Mentor): number {
-  const { targetCompany, targetRole } = student;
-  if (!targetCompany && !targetRole) return 0.5; // nothing to compare: neutral
+// ---- Step 2: factor scores (each 0..1) ------------------------------------
+
+function fieldScore(student: StudentProfile, m: Mentor): number {
+  if (norm(student.field) === norm(m.field)) return 1;
+  const related = RELATED_FIELDS.some(
+    ([a, b]) =>
+      (norm(a) === norm(student.field) && norm(b) === norm(m.field)) ||
+      (norm(b) === norm(student.field) && norm(a) === norm(m.field)),
+  );
+  return related ? 0.5 : 0;
+}
+
+function roleScore(student: StudentProfile, m: Mentor): number {
+  const want = words(student.target_role);
+  if (want.size === 0) return 0;
+  const have = words(m.role);
+  return [...want].filter((w) => have.has(w)).length / want.size;
+}
+
+function companyScore(student: StudentProfile, m: Mentor): number {
+  return norm(student.target_company) === norm(m.company) ? 1 : 0;
+}
+
+// Same major, same field switched from, and shared path tags — capped at 1.
+function pathScore(student: StudentProfile, m: Mentor): number {
+  const major = norm(student.major);
   let score = 0;
-  let parts = 0;
-  if (targetCompany) {
-    parts++;
-    if (norm(targetCompany) === norm(mentor.company)) score += 1;
-  }
-  if (targetRole) {
-    parts++;
-    // Share of the target role's words that appear in the mentor's role.
-    const want = tokens(targetRole);
-    const have = tokens(mentor.role);
-    if (want.size > 0) {
-      score += [...want].filter((w) => have.has(w)).length / want.size;
+  if (norm(m.major) === major) score += 0.5;
+  if (m.switched_from_field && norm(m.switched_from_field) === major) score += 0.3;
+  const mine = words(student.major);
+  const shared = m.path_tags.filter((t) => [...words(t.replace(/-/g, " "))].some((w) => mine.has(w))).length;
+  score += Math.min(shared, 2) * 0.1;
+  return Math.min(score, 1);
+}
+
+function sharedHelp(student: StudentProfile, m: Mentor) {
+  return HELP_TYPES.filter((h) => student.help_wanted.includes(h) && m.help_types.includes(h));
+}
+
+// Weights for this student: if target role/company/major were left blank,
+// that factor is ignored and its weight is spread over the rest proportionally.
+export function weightsFor(student: StudentProfile): FactorPoints {
+  const base = STAGE_WEIGHTS[student.stage];
+  const skipped: Factor[] = [];
+  if (!student.target_role.trim()) skipped.push("role");
+  if (!student.target_company.trim()) skipped.push("company");
+  if (!student.major.trim()) skipped.push("path");
+  const kept = (Object.keys(base) as Factor[]).filter((f) => !skipped.includes(f));
+  const keptTotal = kept.reduce((s, f) => s + base[f], 0);
+  const out = { field: 0, role: 0, company: 0, path: 0, helpFit: 0 } as FactorPoints;
+  for (const f of kept) out[f] = (base[f] / keptTotal) * 100;
+  return out;
+}
+
+const round2 = (n: number) => Math.round(n * 100) / 100;
+
+function matchedFactors(student: StudentProfile, m: Mentor, raw: Record<Factor, number>, shared: ReturnType<typeof sharedHelp>): MatchedFactor[] {
+  const chips: MatchedFactor[] = [];
+  if (raw.field > 0)
+    chips.push({ key: "field", label: "Field", detail: raw.field === 1 ? `works in ${m.field}` : `works in ${m.field}, a related field` });
+  if (raw.role > 0) chips.push({ key: "role", label: "Role", detail: `is ${/^[aeiou]/i.test(m.role) ? "an" : "a"} ${m.role}` });
+  if (raw.company > 0) chips.push({ key: "company", label: "Company", detail: `works at ${m.company}` });
+  chips.push({ key: "stage", label: "Stage", detail: "helps students who are in your stage" });
+  if (raw.path > 0) chips.push({ key: "path", label: "Path overlap", detail: `has a similar path (${m.major}${m.switched_from_field ? `, switched from ${m.switched_from_field}` : ""})` });
+  if (shared.length > 0)
+    chips.push({ key: "help", label: "Offers the help you want", detail: `offers ${shared.map((h) => HELP_LABELS[h].toLowerCase()).join(", ")}` });
+  return chips;
+}
+
+// ---- Steps 1–4 --------------------------------------------------------------
+
+export function matchMentors(student: StudentProfile, mentors: Mentor[]): MatchResult[] {
+  const weights = weightsFor(student);
+
+  const results: MatchResult[] = [];
+  for (const m of mentors) {
+    if (filterReason(student, m)) continue;
+
+    const raw: Record<Factor, number> = {
+      field: fieldScore(student, m),
+      role: roleScore(student, m),
+      company: companyScore(student, m),
+      path: pathScore(student, m),
+      helpFit: sharedHelp(student, m).length / student.help_wanted.length,
+    };
+    // Never pad the list with unrelated fields.
+    if (raw.field === 0) continue;
+
+    const breakdown = {} as FactorPoints;
+    let base = 0;
+    for (const f of Object.keys(raw) as Factor[]) {
+      breakdown[f] = round2(raw[f] * weights[f]);
+      base += raw[f] * weights[f];
     }
-  }
-  return score / parts;
-}
-
-function stageScore(student: Student, mentor: Mentor): number {
-  return mentor.careerStagesHelped.includes(student.careerStage) ? 1 : 0;
-}
-
-function topicScore(student: Student, mentor: Mentor): number {
-  if (student.helpWanted.length === 0) return 0;
-  const shared = student.helpWanted.filter((t) => mentor.topicsOpenTo.includes(t));
-  return shared.length / student.helpWanted.length;
-}
-
-// Overlap between the student's major/background and the mentor's field/path.
-// Three shared keywords counts as a full match.
-function pathScore(student: Student, mentor: Mentor): number {
-  const a = tokens(`${student.major} ${student.background}`);
-  const b = tokens(`${mentor.field} ${mentor.path}`);
-  const shared = [...a].filter((w) => b.has(w)).length;
-  return Math.min(shared / 3, 1);
-}
-
-const round1 = (n: number) => Math.round(n * 10) / 10;
-
-// Returns the top 3 mentors for a student, each with a per-factor breakdown.
-export function matchMentors(student: Student, mentors: Mentor[]): MatchResult[] {
-  const w = STAGE_WEIGHTS[student.careerStage];
-
-  const results: MatchResult[] = mentors
-    // 1. Hard filters: visible, has capacity, and offers some help the student wants.
-    .filter((m) => m.visible)
-    .filter((m) => m.requestsThisMonth < m.monthlyLimit)
-    .filter((m) => student.helpWanted.some((t) => m.topicsOpenTo.includes(t)))
-    // 2. Score each remaining mentor.
-    .map((mentor) => {
-      const breakdown: ScoreBreakdown = {
-        field: round1(fieldScore(student, mentor) * w.field),
-        roleCompany: round1(roleCompanyScore(student, mentor) * w.roleCompany),
-        stage: round1(stageScore(student, mentor) * w.stage),
-        topics: round1(topicScore(student, mentor) * w.topics),
-        pathMajor: round1(pathScore(student, mentor) * w.pathMajor),
-        // Small boost for mentors with more spare capacity, to spread the load.
-        loadBalance: round1(
-          LOAD_BALANCE_MAX * (1 - mentor.requestsThisMonth / mentor.monthlyLimit),
-        ),
-      };
-      const score = round1(Object.values(breakdown).reduce((a, b) => a + b, 0));
-      return { mentor, score, breakdown };
+    // Step 3: spread the load across mentors.
+    const multiplier = 1 - (FAIRNESS_PENALTY * m.requests_this_month) / m.monthly_limit;
+    const shared = sharedHelp(student, m);
+    results.push({
+      mentor: m,
+      score: round2(base * multiplier),
+      baseScore: round2(base),
+      fairnessMultiplier: round2(multiplier),
+      weights,
+      breakdown,
+      matched: matchedFactors(student, m, raw, shared),
+      sharedHelp: shared,
     });
+  }
 
-  // 3. Highest score first; ties broken by mentor id so results are deterministic.
+  // Step 4: top 3, highest first; ties broken by id so results are deterministic.
   results.sort((a, b) => b.score - a.score || a.mentor.id.localeCompare(b.mentor.id));
   return results.slice(0, MAX_RESULTS);
+}
+
+// Fewer than 3 qualify: would a one-time conversation give more results?
+export function oneTimeWouldHelp(student: StudentProfile, mentors: Mentor[], current: number): boolean {
+  if (student.cadence === "one_time" || current >= MAX_RESULTS) return false;
+  const relaxed = { ...student, cadence: "one_time" as const, months: 1 };
+  return matchMentors(relaxed, mentors).length > current;
 }

@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
+/* Design tokens from docs/design (base44-index.css), with the primary taken
+   from the rendered screenshots (#34696a). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfaf8;
+  --foreground: #1c1917;
+  --accent: #34696a;
+  --accent-dark: #2a5758;
+  --accent-soft: #edf2f3;
+  --accent-line: #d5e2e2;
+  --muted: #6c6761;
+  --surface: #f5f4f1;
+  --line: #e0ded9;
+  --card: #ffffff;
+  --danger: #b43b28;
+  --warn-bg: #fdf5eb;
+  --warn-text: #8a4a1c;
+  --radius: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-muted: var(--muted);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-danger: var(--danger);
+  --font-sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.55;
 }
+
+h1, h2, h3 { letter-spacing: -0.02em; font-weight: 600; }
+::selection { background: var(--accent); color: #fff; }
+
+/* Visible keyboard focus everywhere */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+@layer components {
+  .wrap { margin-inline: auto; width: 100%; padding-inline: 1rem; max-width: 72rem; }
+  .wrap-sm { max-width: 42rem; }
+  .wrap-md { max-width: 48rem; }
+  .wrap-lg { max-width: 64rem; }
+
+  .eyebrow { font-size: .7rem; letter-spacing: .2em; text-transform: uppercase; font-weight: 600; color: var(--muted); }
+  .paper {
+    background-image:
+      radial-gradient(ellipse at 15% 0%, rgba(33, 69, 58, 0.07), transparent 55%),
+      radial-gradient(ellipse at 90% 10%, rgba(196, 85, 43, 0.06), transparent 50%);
+  }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 1rem; padding: 1.25rem; }
+  .panel { background: var(--surface); border: 1px solid var(--line); border-radius: .75rem; padding: .75rem 1rem; }
+  .callout { background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: .75rem; padding: .75rem 1rem; }
+
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+    min-height: 44px; padding: .5rem 1.25rem; border-radius: 999px; font-weight: 500; font-size: .9rem;
+    background: var(--accent); color: #fff; border: 1px solid var(--accent); cursor: pointer; text-align: center;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .btn:hover { background: var(--accent-dark); border-color: var(--accent-dark); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn-secondary { background: #fff; color: var(--foreground); border-color: var(--line); }
+  .btn-secondary:hover { background: var(--surface); border-color: var(--line); }
+  .btn-danger { background: #fff; color: var(--danger); border-color: var(--danger); }
+  .btn-danger:hover { background: #fdf0ee; border-color: var(--danger); }
+  .btn-link { background: none; border: 0; color: var(--accent); min-height: 44px; padding: 0 .25rem; font-size: .85rem; font-weight: 500; cursor: pointer; display: inline-flex; align-items: center; gap: .35rem; }
+  .btn-link:hover { text-decoration: underline; }
+
+  .chip {
+    display: inline-flex; align-items: center; min-height: 24px; padding: .05rem .65rem;
+    border-radius: 999px; background: #f3f6f6; border: 1px solid var(--accent-line); color: var(--accent);
+    font-size: .75rem; font-weight: 500;
+  }
+  .chip-warn { background: var(--warn-bg); border-color: #f3dfc6; color: var(--warn-text); }
+  .chip-ok { background: #eef6ee; border-color: #cfe5d0; color: #2d6a32; }
+  .chip-bad { background: #fbeeec; border-color: #f0cdc8; color: var(--danger); }
+
+  /* Pill chips for multi-select (help wanted) */
+  .choice {
+    display: inline-flex; align-items: center; min-height: 44px; padding: .35rem 1rem; border-radius: 999px;
+    border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: .875rem; font-weight: 500;
+  }
+  .choice:hover { background: var(--surface); }
+  .choice[aria-pressed="true"] { border-color: var(--accent); background: var(--accent); color: #fff; }
+
+  /* Option cards for single-select (stage, meeting, schedule) */
+  .opt {
+    display: block; width: 100%; min-height: 44px; text-align: left; padding: .7rem 1rem; border-radius: .75rem;
+    border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: .9rem;
+  }
+  .opt:hover { background: var(--surface); }
+  .opt[aria-checked="true"] { border: 2px solid var(--accent); background: var(--accent-soft); padding: calc(.7rem - 1px) calc(1rem - 1px); }
+
+  .input {
+    width: 100%; min-height: 44px; padding: .5rem .8rem; border-radius: .6rem; font-size: .9rem;
+    border: 1px solid var(--line); background: #fff; color: var(--foreground);
+  }
+  .input:focus-visible { outline-offset: 0; border-color: var(--accent); }
+  .label { display: block; font-weight: 500; font-size: .85rem; margin-bottom: .35rem; }
+  .hint { color: var(--muted); font-size: .8rem; }
+  .skeleton { background: linear-gradient(90deg, #ece9e3, #f6f4f0, #ece9e3); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: .75rem; }
+
+  .step-badge {
+    display: inline-flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem;
+    border-radius: 999px; background: var(--surface); color: var(--muted); font-size: .7rem; font-weight: 600;
+  }
+}
+
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.fade-up { animation: fadeUp .5s cubic-bezier(.22, 1, .36, 1) both; }
+@media (prefers-reduced-motion: reduce) { .skeleton, .fade-up { animation: none; } }
+
+dialog::backdrop { background: rgba(28, 25, 23, 0.55); }

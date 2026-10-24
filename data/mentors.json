@@ -1,1098 +1,2630 @@
 [
   {
-    "id": "m1",
-    "name": "Naomi Stein",
-    "field": "SWE",
+    "id": "m01",
+    "display_name": "Samira Haddad",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Engineering Manager",
+    "company": "Northwind Labs",
+    "industry": "Technology",
+    "years_experience": 12,
+    "major": "Computer Science",
+    "switched_from_field": null,
+    "path_tags": [
+      "computer-science",
+      "self-taught"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying"
+    ],
+    "help_types": [
+      "resume_review",
+      "role_deep_dive",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "monthly",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 4,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "legal or visa advice"
+    ],
+    "bio_for_explanations": "12 years in software engineering; studied computer science and joined a startup after graduating. Currently an Engineering Manager at Northwind Labs.",
+    "can_speak_to": [
+      "system design interviews",
+      "code review habits",
+      "side projects that matter"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m02",
+    "display_name": "Fatima Al-Sayed",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
     "role": "Backend Engineer",
-    "company": "Brightloop",
-    "yearsExperience": 8,
-    "path": "switched from CS to product engineering",
-    "careerStagesHelped": [
-      "exploring"
+    "company": "Stripe",
+    "industry": "Technology",
+    "years_experience": 10,
+    "major": "Music",
+    "switched_from_field": "Music Education",
+    "path_tags": [
+      "music",
+      "career-switcher",
+      "self-taught"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "interview prep",
-      "understanding the role",
-      "resume feedback"
-    ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-08-21",
-    "visible": true
-  },
-  {
-    "id": "m2",
-    "name": "Sanjay Gupta",
-    "field": "SWE",
-    "role": "Staff Engineer",
-    "company": "Brightloop",
-    "yearsExperience": 6,
-    "path": "bootcamp graduate turned senior engineer",
-    "careerStagesHelped": [
-      "targeting"
-    ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "choosing a path",
-      "understanding the role",
-      "interview prep"
-    ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-02-13",
-    "visible": true
-  },
-  {
-    "id": "m3",
-    "name": "Arjun Mehta",
-    "field": "SWE",
-    "role": "Software Engineer",
-    "company": "Cobalt Systems",
-    "yearsExperience": 15,
-    "path": "former high school teacher who learned to code",
-    "careerStagesHelped": [
-      "targeting",
-      "interviewing"
-    ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "resume feedback"
-    ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-09-28",
-    "visible": true
-  },
-  {
-    "id": "m4",
-    "name": "Andre Dupont",
-    "field": "SWE",
-    "role": "Mobile Engineer",
-    "company": "Atlassian",
-    "yearsExperience": 8,
-    "path": "started in IT support and moved into backend",
-    "careerStagesHelped": [
+    "stages": [
+      "exploring",
+      "targeting_role",
       "applying",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "choosing a path",
-      "interview prep"
+    "help_types": [
+      "mock_interview",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-02-11",
-    "visible": true
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "reviewing full code projects",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "10 years in software engineering; left music teaching, learned to code on nights and weekends. Currently a Backend Engineer at Stripe.",
+    "can_speak_to": [
+      "side projects that matter",
+      "getting a first engineering job",
+      "code review habits"
+    ],
+    "owner_user": null
   },
   {
-    "id": "m5",
-    "name": "Hannah Cohen",
-    "field": "SWE",
-    "role": "Backend Engineer",
-    "company": "Google",
-    "yearsExperience": 6,
-    "path": "self-taught developer with a music degree",
-    "careerStagesHelped": [
-      "interviewing",
-      "targeting",
-      "applying"
-    ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path",
-      "resume feedback",
-      "understanding the role"
-    ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-04-19",
-    "visible": true
-  },
-  {
-    "id": "m6",
-    "name": "Joy Okonkwo",
-    "field": "SWE",
-    "role": "Staff Engineer",
-    "company": "Stripe",
-    "yearsExperience": 4,
-    "path": "CS degree, joined a startup straight out of college",
-    "careerStagesHelped": [
-      "targeting",
-      "interviewing",
-      "applying"
-    ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "understanding the role",
-      "resume feedback"
-    ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 4,
-    "consentAt": "2026-07-27",
-    "visible": true
-  },
-  {
-    "id": "m7",
-    "name": "Noor Rahman",
-    "field": "SWE",
+    "id": "m03",
+    "display_name": "Yuki Tanaka",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
     "role": "Senior Software Engineer",
-    "company": "Atlassian",
-    "yearsExperience": 6,
-    "path": "switched from CS to product engineering",
-    "careerStagesHelped": [
-      "interviewing",
-      "targeting",
-      "applying"
-    ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "choosing a path"
-    ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-04-10",
-    "visible": false
-  },
-  {
-    "id": "m8",
-    "name": "Mateo Garcia",
-    "field": "SWE",
-    "role": "Engineering Manager",
     "company": "Microsoft",
-    "yearsExperience": 12,
-    "path": "bootcamp graduate turned senior engineer",
-    "careerStagesHelped": [
-      "targeting",
-      "interviewing",
-      "applying"
+    "industry": "Technology",
+    "years_experience": 15,
+    "major": "Physics",
+    "switched_from_field": null,
+    "path_tags": [
+      "physics",
+      "self-taught",
+      "mentor-minded"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "understanding the role"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "interviewing"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-03-26",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "mock_interview",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "mentoring over text at odd hours",
+      "asking for a referral in a first chat"
+    ],
+    "bio_for_explanations": "15 years in software engineering; moved from a physics degree into backend engineering. Currently a Senior Software Engineer at Microsoft.",
+    "can_speak_to": [
+      "system design interviews",
+      "switching into tech",
+      "getting a first engineering job"
+    ],
+    "owner_user": null
   },
   {
-    "id": "m9",
-    "name": "Zara Ahmed",
-    "field": "SWE",
-    "role": "Backend Engineer",
-    "company": "Google",
-    "yearsExperience": 18,
-    "path": "former high school teacher who learned to code",
-    "careerStagesHelped": [
-      "exploring",
-      "targeting",
+    "id": "m04",
+    "display_name": "Chloe Dubois",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Engineering Manager",
+    "company": "Atlassian",
+    "industry": "Technology",
+    "years_experience": 18,
+    "major": "Information Systems",
+    "switched_from_field": "IT Support",
+    "path_tags": [
+      "it-support",
+      "career-switcher",
+      "big-company"
+    ],
+    "stages": [
       "applying"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "resume feedback",
-      "choosing a path"
+    "help_types": [
+      "resume_review",
+      "company_insights",
+      "role_deep_dive"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 4,
-    "consentAt": "2026-04-12",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 6,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "legal or visa advice",
+      "unpaid work or free projects",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "18 years in software engineering; started in IT support and moved into engineering. Currently an Engineering Manager at Atlassian.",
+    "can_speak_to": [
+      "code review habits",
+      "side projects that matter",
+      "system design interviews"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m05",
+    "display_name": "Julia Rossi",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Software Engineer",
+    "company": "Stripe",
+    "industry": "Technology",
+    "years_experience": 10,
+    "major": "English",
+    "switched_from_field": "Journalism",
+    "path_tags": [
+      "journalism",
+      "career-switcher",
+      "freelance"
+    ],
+    "stages": [
+      "exploring"
+    ],
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 5,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 3,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "personal introductions to executives",
+      "reviewing full code projects"
+    ],
+    "bio_for_explanations": "10 years in software engineering; left journalism and completed a coding bootcamp. Currently a Software Engineer at Stripe.",
+    "can_speak_to": [
+      "code review habits",
+      "switching into tech",
+      "getting a first engineering job"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m06",
+    "display_name": "Andre Dupont",
+    "opted_in": true,
+    "status": "paused",
+    "field": "Software Engineering",
+    "role": "Software Engineer",
+    "company": "Microsoft",
+    "industry": "Technology",
+    "years_experience": 2,
+    "major": "Computer Science",
+    "switched_from_field": null,
+    "path_tags": [
+      "computer-science",
+      "freelance",
+      "self-taught"
+    ],
+    "stages": [
+      "applying",
+      "interviewing"
+    ],
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "legal or visa advice",
+      "asking for a referral in a first chat"
+    ],
+    "bio_for_explanations": "2 years in software engineering; interned for two summers and converted to full time. Currently a Software Engineer at Microsoft.",
+    "can_speak_to": [
+      "switching into tech",
+      "learning on the job",
+      "side projects that matter"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m07",
+    "display_name": "Isaac Goldberg",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Software Engineer",
+    "company": "Stripe",
+    "industry": "Technology",
+    "years_experience": 4,
+    "major": "Computer Science",
+    "switched_from_field": null,
+    "path_tags": [
+      "computer-science",
+      "mentor-minded"
+    ],
+    "stages": [
+      "exploring",
+      "applying",
+      "interviewing"
+    ],
+    "help_types": [
+      "mock_interview",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 2,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "salary negotiation scripts"
+    ],
+    "bio_for_explanations": "4 years in software engineering; studied computer science and joined a startup after graduating. Currently a Software Engineer at Stripe.",
+    "can_speak_to": [
+      "system design interviews",
+      "switching into tech",
+      "side projects that matter"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m08",
+    "display_name": "Hannah Cohen",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Backend Engineer",
+    "company": "Brightloop",
+    "industry": "Technology",
+    "years_experience": 6,
+    "major": "Music",
+    "switched_from_field": "Music Education",
+    "path_tags": [
+      "music",
+      "career-switcher",
+      "freelance",
+      "self-taught"
+    ],
+    "stages": [
+      "targeting_role",
+      "applying",
+      "interviewing"
+    ],
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "role_deep_dive",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 5,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "legal or visa advice"
+    ],
+    "bio_for_explanations": "6 years in software engineering; left music teaching, learned to code on nights and weekends. Currently a Backend Engineer at Brightloop.",
+    "can_speak_to": [
+      "side projects that matter",
+      "getting a first engineering job",
+      "learning on the job"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m09",
+    "display_name": "Grace Liu",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Backend Engineer",
+    "company": "Shopify",
+    "industry": "Technology",
+    "years_experience": 22,
+    "major": "Physics",
+    "switched_from_field": null,
+    "path_tags": [
+      "physics",
+      "startup"
+    ],
+    "stages": [
+      "targeting_role",
+      "applying"
+    ],
+    "help_types": [
+      "resume_review",
+      "company_insights",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 5,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "22 years in software engineering; moved from a physics degree into backend engineering. Currently a Backend Engineer at Shopify.",
+    "can_speak_to": [
+      "code review habits",
+      "learning on the job",
+      "getting a first engineering job"
+    ],
+    "owner_user": null
   },
   {
     "id": "m10",
-    "name": "Liam O'Brien",
-    "field": "SWE",
-    "role": "Staff Engineer",
-    "company": "Brightloop",
-    "yearsExperience": 5,
-    "path": "started in IT support and moved into backend",
-    "careerStagesHelped": [
-      "targeting",
-      "exploring"
+    "display_name": "Kenji Watanabe",
+    "opted_in": true,
+    "status": "active",
+    "field": "Software Engineering",
+    "role": "Backend Engineer",
+    "company": "Shopify",
+    "industry": "Technology",
+    "years_experience": 10,
+    "major": "Information Systems",
+    "switched_from_field": "IT Support",
+    "path_tags": [
+      "it-support",
+      "career-switcher",
+      "mentor-minded"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "understanding the role",
-      "interview prep"
+    "stages": [
+      "targeting_role",
+      "interviewing"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-01-12",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 4,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "10 years in software engineering; started in IT support and moved into engineering. Currently a Backend Engineer at Shopify.",
+    "can_speak_to": [
+      "getting a first engineering job",
+      "switching into tech",
+      "system design interviews"
+    ],
+    "owner_user": null
   },
   {
     "id": "m11",
-    "name": "Dana Schwartz",
-    "field": "PM",
-    "role": "Associate Product Manager",
+    "display_name": "Ingrid Larsen",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Product Manager",
     "company": "Pinecrest Software",
-    "yearsExperience": 5,
-    "path": "switched from CS to product",
-    "careerStagesHelped": [
-      "interviewing",
-      "exploring",
-      "targeting"
+    "industry": "Technology",
+    "years_experience": 22,
+    "major": "Business",
+    "switched_from_field": null,
+    "path_tags": [
+      "business",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "resume feedback",
-      "choosing a path"
+    "stages": [
+      "applying"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-08-19",
-    "visible": true
+    "help_types": [
+      "resume_review",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 6,
+    "requests_this_month": 6,
+    "not_open_to": [
+      "reviewing full code projects",
+      "legal or visa advice"
+    ],
+    "bio_for_explanations": "22 years in product management; started in business operations and moved into product. Currently a Product Manager at Pinecrest Software.",
+    "can_speak_to": [
+      "metrics that matter",
+      "prioritization",
+      "product case interviews"
+    ],
+    "owner_user": null
   },
   {
     "id": "m12",
-    "name": "Julia Rossi",
-    "field": "PM",
-    "role": "Senior Product Manager",
-    "company": "Salesforce",
-    "yearsExperience": 3,
-    "path": "former consultant who moved into product",
-    "careerStagesHelped": [
-      "exploring"
+    "display_name": "Imani Johnson",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Associate Product Manager",
+    "company": "Airbnb",
+    "industry": "Technology",
+    "years_experience": 10,
+    "major": "Computer Science",
+    "switched_from_field": "Software Engineering",
+    "path_tags": [
+      "computer-science",
+      "career-switcher",
+      "startup",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "understanding the role",
-      "resume feedback",
-      "choosing a path"
+    "stages": [
+      "exploring",
+      "applying",
+      "interviewing"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-06-14",
-    "visible": true
+    "help_types": [
+      "mock_interview",
+      "role_deep_dive",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 5,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "reviewing full code projects"
+    ],
+    "bio_for_explanations": "10 years in product management; engineer who moved into product management. Currently an Associate Product Manager at Airbnb.",
+    "can_speak_to": [
+      "writing a product spec",
+      "product case interviews",
+      "metrics that matter"
+    ],
+    "owner_user": null
   },
   {
     "id": "m13",
-    "name": "Mei Lin",
-    "field": "PM",
-    "role": "Senior Product Manager",
-    "company": "Salesforce",
-    "yearsExperience": 15,
-    "path": "started in customer support then became a PM",
-    "careerStagesHelped": [
+    "display_name": "Naomi Stein",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Group Product Manager",
+    "company": "Lumen Apps",
+    "industry": "Technology",
+    "years_experience": 12,
+    "major": "Psychology",
+    "switched_from_field": "Customer Support",
+    "path_tags": [
+      "psychology",
+      "career-switcher",
+      "first-job-focused",
+      "freelance"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
       "applying"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "interview prep",
-      "resume feedback",
-      "understanding the role"
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-09-26",
-    "visible": true
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "12 years in product management; began in customer support and grew into product. Currently a Group Product Manager at Lumen Apps.",
+    "can_speak_to": [
+      "writing a product spec",
+      "metrics that matter",
+      "working with engineers"
+    ],
+    "owner_user": null
   },
   {
     "id": "m14",
-    "name": "Grace Liu",
-    "field": "PM",
-    "role": "Associate Product Manager",
-    "company": "Meridian Health",
-    "yearsExperience": 8,
-    "path": "ex-engineer who moved to product",
-    "careerStagesHelped": [
-      "targeting",
+    "display_name": "Jonas Berg",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Senior Product Manager",
+    "company": "Lumen Apps",
+    "industry": "Technology",
+    "years_experience": 15,
+    "major": "Economics",
+    "switched_from_field": null,
+    "path_tags": [
+      "economics",
+      "mentor-minded"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
       "applying",
-      "exploring"
+      "interviewing"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "interview prep"
+    "help_types": [
+      "resume_review",
+      "role_deep_dive",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-01-10",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "15 years in product management; joined as an associate product manager after college. Currently a Senior Product Manager at Lumen Apps.",
+    "can_speak_to": [
+      "product case interviews",
+      "prioritization",
+      "metrics that matter"
+    ],
+    "owner_user": null
   },
   {
     "id": "m15",
-    "name": "Avery Brooks",
-    "field": "PM",
-    "role": "Product Manager",
-    "company": "Airbnb",
-    "yearsExperience": 6,
-    "path": "MBA career changer",
-    "careerStagesHelped": [
-      "applying",
-      "exploring"
+    "display_name": "Tariq Hassan",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Associate Product Manager",
+    "company": "Pinecrest Software",
+    "industry": "Technology",
+    "years_experience": 15,
+    "major": "Design",
+    "switched_from_field": "Design",
+    "path_tags": [
+      "design",
+      "career-switcher",
+      "self-taught"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "resume feedback",
-      "understanding the role",
-      "choosing a path"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-08-16",
-    "visible": true
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "asking for a referral in a first chat"
+    ],
+    "bio_for_explanations": "15 years in product management; designer who shifted into product management. Currently an Associate Product Manager at Pinecrest Software.",
+    "can_speak_to": [
+      "metrics that matter",
+      "working with engineers",
+      "writing a product spec"
+    ],
+    "owner_user": null
   },
   {
     "id": "m16",
-    "name": "Camila Reyes",
-    "field": "PM",
+    "display_name": "Tasha Williams",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
     "role": "Senior Product Manager",
-    "company": "Pinecrest Software",
-    "yearsExperience": 8,
-    "path": "started as a designer then moved to product",
-    "careerStagesHelped": [
+    "company": "Lumen Apps",
+    "industry": "Technology",
+    "years_experience": 8,
+    "major": "Philosophy",
+    "switched_from_field": "Consulting",
+    "path_tags": [
+      "philosophy",
+      "career-switcher",
+      "internship-path"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "resume feedback",
-      "interview prep",
-      "understanding the role"
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "role_deep_dive"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-03-23",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 6,
+    "requests_this_month": 5,
+    "not_open_to": [
+      "reviewing full code projects",
+      "salary negotiation scripts",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "8 years in product management; left consulting for product. Currently a Senior Product Manager at Lumen Apps.",
+    "can_speak_to": [
+      "metrics that matter",
+      "working with engineers",
+      "prioritization"
+    ],
+    "owner_user": null
   },
   {
     "id": "m17",
-    "name": "Owen Fitzgerald",
-    "field": "PM",
-    "role": "Senior Product Manager",
-    "company": "Spotify",
-    "yearsExperience": 22,
-    "path": "switched from CS to product",
-    "careerStagesHelped": [
+    "display_name": "Tunde Adeyemi",
+    "opted_in": true,
+    "status": "active",
+    "field": "Product Management",
+    "role": "Technical Product Manager",
+    "company": "Salesforce",
+    "industry": "Technology",
+    "years_experience": 8,
+    "major": "Business",
+    "switched_from_field": null,
+    "path_tags": [
+      "business",
+      "internship-path"
+    ],
+    "stages": [
       "exploring",
-      "applying"
+      "targeting_role"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "resume feedback",
-      "choosing a path"
+    "help_types": [
+      "resume_review",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-03-28",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 5,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "personal introductions to executives",
+      "salary negotiation scripts"
+    ],
+    "bio_for_explanations": "8 years in product management; started in business operations and moved into product. Currently a Technical Product Manager at Salesforce.",
+    "can_speak_to": [
+      "writing a product spec",
+      "working with engineers",
+      "metrics that matter"
+    ],
+    "owner_user": null
   },
   {
     "id": "m18",
-    "name": "Ben Kowalski",
+    "display_name": "Lena Fischer",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
-    "role": "Data Scientist",
+    "role": "Business Intelligence Analyst",
     "company": "Quantix",
-    "yearsExperience": 12,
-    "path": "physics PhD who moved into industry",
-    "careerStagesHelped": [
-      "targeting",
-      "applying",
-      "interviewing"
+    "industry": "Technology",
+    "years_experience": 3,
+    "major": "Statistics",
+    "switched_from_field": null,
+    "path_tags": [
+      "statistics",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path",
-      "understanding the role",
-      "resume feedback"
+    "stages": [
+      "exploring",
+      "targeting_role"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-03-23",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 4,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "salary negotiation scripts"
+    ],
+    "bio_for_explanations": "3 years in data science; studied statistics and has worked in data ever since. Currently a Business Intelligence Analyst at Quantix.",
+    "can_speak_to": [
+      "analyst vs scientist roles",
+      "communicating findings",
+      "machine learning basics"
+    ],
+    "owner_user": null
   },
   {
     "id": "m19",
-    "name": "Jonas Berg",
+    "display_name": "Peter Novak",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
     "role": "Analytics Manager",
-    "company": "Capital One",
-    "yearsExperience": 5,
-    "path": "switched from biology to data science",
-    "careerStagesHelped": [
-      "exploring"
+    "company": "Harborview Analytics",
+    "industry": "Technology",
+    "years_experience": 10,
+    "major": "Biology",
+    "switched_from_field": "Biology",
+    "path_tags": [
+      "biology",
+      "career-switcher",
+      "internship-path",
+      "freelance"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "understanding the role",
-      "choosing a path"
+    "stages": [
+      "targeting_role",
+      "applying",
+      "interviewing"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-03-11",
-    "visible": true
+    "help_types": [
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 4,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "reviewing full code projects",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "10 years in data science; left a biology lab for data science. Currently an Analytics Manager at Harborview Analytics.",
+    "can_speak_to": [
+      "career switching into data",
+      "communicating findings",
+      "SQL and Python interviews"
+    ],
+    "owner_user": null
   },
   {
     "id": "m20",
-    "name": "Tariq Hassan",
+    "display_name": "Ravi Menon",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
-    "role": "Senior Data Scientist",
-    "company": "Quantix",
-    "yearsExperience": 8,
-    "path": "self-taught analyst from a finance background",
-    "careerStagesHelped": [
-      "interviewing",
+    "role": "Analytics Manager",
+    "company": "Harborview Analytics",
+    "industry": "Technology",
+    "years_experience": 15,
+    "major": "Physics",
+    "switched_from_field": "Physics",
+    "path_tags": [
+      "physics",
+      "career-switcher",
+      "first-job-focused",
+      "self-taught"
+    ],
+    "stages": [
+      "exploring",
       "applying"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "interview prep"
+    "help_types": [
+      "resume_review",
+      "company_insights",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-01-14",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "salary negotiation scripts",
+      "reviewing full code projects"
+    ],
+    "bio_for_explanations": "15 years in data science; finished a physics PhD and moved into industry. Currently an Analytics Manager at Harborview Analytics.",
+    "can_speak_to": [
+      "career switching into data",
+      "analyst vs scientist roles",
+      "machine learning basics"
+    ],
+    "owner_user": null
   },
   {
     "id": "m21",
-    "name": "Isaac Goldberg",
+    "display_name": "Vikram Joshi",
+    "opted_in": true,
+    "status": "paused",
     "field": "Data Science",
-    "role": "Analytics Manager",
-    "company": "Netflix",
-    "yearsExperience": 4,
-    "path": "statistics degree, always worked in data",
-    "careerStagesHelped": [
+    "role": "Business Intelligence Analyst",
+    "company": "Capital One",
+    "industry": "Technology",
+    "years_experience": 5,
+    "major": "Economics",
+    "switched_from_field": "Finance",
+    "path_tags": [
+      "economics",
+      "career-switcher",
+      "self-taught",
+      "mentor-minded"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "interview prep",
-      "understanding the role",
-      "resume feedback"
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "company_insights",
+      "role_deep_dive",
+      "networking_advice"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-04-16",
-    "visible": false
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 4,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "5 years in data science; moved from finance into analytics. Currently a Business Intelligence Analyst at Capital One.",
+    "can_speak_to": [
+      "analyst vs scientist roles",
+      "career switching into data",
+      "machine learning basics"
+    ],
+    "owner_user": null
   },
   {
     "id": "m22",
-    "name": "Tasha Williams",
+    "display_name": "Mateo Garcia",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
     "role": "Analytics Manager",
     "company": "Quantix",
-    "yearsExperience": 6,
-    "path": "former journalist who learned data analysis",
-    "careerStagesHelped": [
-      "exploring"
+    "industry": "Technology",
+    "years_experience": 8,
+    "major": "Journalism",
+    "switched_from_field": "Journalism",
+    "path_tags": [
+      "journalism",
+      "career-switcher",
+      "mentor-minded"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "interview prep",
-      "choosing a path",
-      "resume feedback"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
+      "interviewing"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-09-16",
-    "visible": true
+    "help_types": [
+      "role_deep_dive",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "mentoring over text at odd hours",
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "8 years in data science; learned data analysis while working as a reporter. Currently an Analytics Manager at Quantix.",
+    "can_speak_to": [
+      "analyst vs scientist roles",
+      "career switching into data",
+      "machine learning basics"
+    ],
+    "owner_user": null
   },
   {
     "id": "m23",
-    "name": "Paul Anderson",
+    "display_name": "Avery Brooks",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
-    "role": "Senior Data Scientist",
-    "company": "Capital One",
-    "yearsExperience": 6,
-    "path": "started in operations and moved into analytics",
-    "careerStagesHelped": [
-      "interviewing",
-      "applying"
+    "role": "Business Intelligence Analyst",
+    "company": "Harborview Analytics",
+    "industry": "Technology",
+    "years_experience": 12,
+    "major": "Mathematics",
+    "switched_from_field": null,
+    "path_tags": [
+      "mathematics",
+      "startup",
+      "mentor-minded"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "understanding the role"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
+      "interviewing"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-02-22",
-    "visible": true
+    "help_types": [
+      "resume_review",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 5,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "personal introductions to executives",
+      "reviewing full code projects",
+      "salary negotiation scripts"
+    ],
+    "bio_for_explanations": "12 years in data science; mathematics graduate who joined an analytics team. Currently a Business Intelligence Analyst at Harborview Analytics.",
+    "can_speak_to": [
+      "building a data portfolio",
+      "machine learning basics",
+      "career switching into data"
+    ],
+    "owner_user": null
   },
   {
     "id": "m24",
-    "name": "Tunde Adeyemi",
+    "display_name": "Anika Sharma",
+    "opted_in": true,
+    "status": "active",
     "field": "Data Science",
-    "role": "Data Scientist",
-    "company": "Databricks",
-    "yearsExperience": 12,
-    "path": "physics PhD who moved into industry",
-    "careerStagesHelped": [
+    "role": "Senior Data Scientist",
+    "company": "Redwood Insights",
+    "industry": "Technology",
+    "years_experience": 12,
+    "major": "Statistics",
+    "switched_from_field": null,
+    "path_tags": [
+      "statistics",
+      "mentor-minded",
+      "big-company"
+    ],
+    "stages": [
       "exploring",
-      "applying"
+      "interviewing"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "choosing a path"
+    "help_types": [
+      "career_path_advice",
+      "resume_review",
+      "company_insights",
+      "role_deep_dive",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-06-14",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 5,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "12 years in data science; studied statistics and has worked in data ever since. Currently a Senior Data Scientist at Redwood Insights.",
+    "can_speak_to": [
+      "career switching into data",
+      "SQL and Python interviews",
+      "machine learning basics"
+    ],
+    "owner_user": null
   },
   {
     "id": "m25",
-    "name": "Nate Peterson",
+    "display_name": "Kwame Mensah",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
-    "role": "Senior UX Designer",
-    "company": "Figma",
-    "yearsExperience": 6,
-    "path": "art history major turned designer",
-    "careerStagesHelped": [
-      "interviewing"
+    "role": "Product Designer",
+    "company": "Bluebird Interactive",
+    "industry": "Technology",
+    "years_experience": 12,
+    "major": "Art History",
+    "switched_from_field": "Museum Work",
+    "path_tags": [
+      "art-history",
+      "career-switcher",
+      "freelance"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "resume feedback"
+    "stages": [
+      "targeting_role",
+      "applying"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-07-26",
-    "visible": true
+    "help_types": [
+      "role_deep_dive",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 5,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 2,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "asking for a referral in a first chat"
+    ],
+    "bio_for_explanations": "12 years in ux design; left museum work and taught themself design. Currently a Product Designer at Bluebird Interactive.",
+    "can_speak_to": [
+      "building a portfolio",
+      "design critiques",
+      "design interviews"
+    ],
+    "owner_user": null
   },
   {
     "id": "m26",
-    "name": "Samira Haddad",
+    "display_name": "Beth Mitchell",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
-    "role": "Interaction Designer",
-    "company": "Airbnb",
-    "yearsExperience": 10,
-    "path": "switched from architecture to UX",
-    "careerStagesHelped": [
-      "interviewing",
-      "exploring"
+    "role": "Product Designer",
+    "company": "Shopify",
+    "industry": "Technology",
+    "years_experience": 3,
+    "major": "Architecture",
+    "switched_from_field": "Architecture",
+    "path_tags": [
+      "architecture",
+      "career-switcher",
+      "first-job-focused"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path",
-      "resume feedback"
+    "stages": [
+      "targeting_role",
+      "applying"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-01-22",
-    "visible": true
+    "help_types": [
+      "mock_interview",
+      "company_insights",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 5,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 5,
+    "requests_this_month": 5,
+    "not_open_to": [
+      "mentoring over text at odd hours",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "3 years in ux design; moved from architecture into UX. Currently a Product Designer at Shopify.",
+    "can_speak_to": [
+      "design critiques",
+      "design interviews",
+      "self-taught paths"
+    ],
+    "owner_user": null
   },
   {
     "id": "m27",
-    "name": "Kwame Mensah",
+    "display_name": "Joy Okonkwo",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
-    "role": "Design Lead",
-    "company": "Adobe",
-    "yearsExperience": 8,
-    "path": "self-taught designer from a retail job",
-    "careerStagesHelped": [
-      "applying",
-      "interviewing",
-      "exploring"
+    "role": "UX Designer",
+    "company": "Sparrow Studio",
+    "industry": "Technology",
+    "years_experience": 22,
+    "major": "Graphic Design",
+    "switched_from_field": "Graphic Design",
+    "path_tags": [
+      "design",
+      "career-switcher",
+      "internship-path",
+      "grad-school"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "choosing a path"
+    "stages": [
+      "targeting_role",
+      "interviewing"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-03-18",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 3,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "job placement guarantees",
+      "legal or visa advice",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "22 years in ux design; graphic designer who moved into product design. Currently an UX Designer at Sparrow Studio.",
+    "can_speak_to": [
+      "self-taught paths",
+      "design interviews",
+      "getting a first design job"
+    ],
+    "owner_user": null
   },
   {
     "id": "m28",
-    "name": "Ravi Menon",
+    "display_name": "Hiro Sato",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
-    "role": "Design Lead",
-    "company": "Adobe",
-    "yearsExperience": 4,
-    "path": "graphic designer who moved into product design",
-    "careerStagesHelped": [
-      "applying",
-      "targeting"
+    "role": "Senior UX Designer",
+    "company": "Sparrow Studio",
+    "industry": "Technology",
+    "years_experience": 4,
+    "major": "Psychology",
+    "switched_from_field": null,
+    "path_tags": [
+      "psychology",
+      "startup"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "interview prep"
+    "stages": [
+      "exploring",
+      "applying"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-03-23",
-    "visible": true
+    "help_types": [
+      "company_insights",
+      "role_deep_dive",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 5,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "4 years in ux design; studied psychology and joined a design team. Currently a Senior UX Designer at Sparrow Studio.",
+    "can_speak_to": [
+      "self-taught paths",
+      "working with engineers and PMs",
+      "getting a first design job"
+    ],
+    "owner_user": null
   },
   {
     "id": "m29",
-    "name": "Alma Torres",
+    "display_name": "Leila Karimi",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
-    "role": "Design Lead",
-    "company": "Adobe",
-    "yearsExperience": 3,
-    "path": "community college path into design",
-    "careerStagesHelped": [
+    "role": "UX Designer",
+    "company": "Sparrow Studio",
+    "industry": "Technology",
+    "years_experience": 5,
+    "major": "Computer Science",
+    "switched_from_field": "Front-end Development",
+    "path_tags": [
+      "computer-science",
+      "career-switcher",
+      "mentor-minded"
+    ],
+    "stages": [
       "exploring",
+      "targeting_role",
       "applying"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path"
+    "help_types": [
+      "career_path_advice",
+      "mock_interview",
+      "company_insights"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-08-10",
-    "visible": true
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 6,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "job placement guarantees",
+      "mentoring over text at odd hours",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "5 years in ux design; front-end developer who moved into design. Currently an UX Designer at Sparrow Studio.",
+    "can_speak_to": [
+      "building a portfolio",
+      "design interviews",
+      "self-taught paths"
+    ],
+    "owner_user": null
   },
   {
     "id": "m30",
-    "name": "Yuki Tanaka",
+    "display_name": "Arjun Mehta",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Design",
     "role": "Product Designer",
-    "company": "Figma",
-    "yearsExperience": 8,
-    "path": "started as a front-end developer",
-    "careerStagesHelped": [
-      "interviewing",
-      "targeting",
+    "company": "Sparrow Studio",
+    "industry": "Technology",
+    "years_experience": 6,
+    "major": "Communications",
+    "switched_from_field": null,
+    "path_tags": [
+      "communications",
+      "first-job-focused"
+    ],
+    "stages": [
       "exploring"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "choosing a path"
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "networking_advice"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-04-19",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 4,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "unpaid work or free projects",
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "6 years in ux design; built a design portfolio while working in communications. Currently a Product Designer at Sparrow Studio.",
+    "can_speak_to": [
+      "building a portfolio",
+      "working with engineers and PMs",
+      "design interviews"
+    ],
+    "owner_user": null
   },
   {
     "id": "m31",
-    "name": "Beth Mitchell",
+    "display_name": "Alma Torres",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Research",
-    "role": "UX Researcher",
+    "role": "Research Operations Lead",
     "company": "Meta",
-    "yearsExperience": 22,
-    "path": "psychology degree turned researcher",
-    "careerStagesHelped": [
-      "targeting",
-      "interviewing"
+    "industry": "Technology",
+    "years_experience": 2,
+    "major": "Psychology",
+    "switched_from_field": null,
+    "path_tags": [
+      "psychology",
+      "internship-path",
+      "first-job-focused"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "understanding the role",
-      "interview prep"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-01-26",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 5,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "job placement guarantees",
+      "asking for a referral in a first chat"
+    ],
+    "bio_for_explanations": "2 years in ux research; studied psychology and became a researcher. Currently a Research Operations Lead at Meta.",
+    "can_speak_to": [
+      "influencing product decisions",
+      "research portfolios",
+      "academic to industry moves"
+    ],
+    "owner_user": null
   },
   {
     "id": "m32",
-    "name": "Chloe Dubois",
-    "field": "UX Research",
-    "role": "Research Operations Lead",
-    "company": "Fieldnote Co",
-    "yearsExperience": 15,
-    "path": "former anthropologist working in tech",
-    "careerStagesHelped": [
-      "interviewing"
-    ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "choosing a path"
-    ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 4,
-    "consentAt": "2026-07-26",
-    "visible": true
-  },
-  {
-    "id": "m33",
-    "name": "Lena Fischer",
-    "field": "UX Research",
-    "role": "Senior UX Researcher",
-    "company": "Meta",
-    "yearsExperience": 6,
-    "path": "switched from nursing to UX research",
-    "careerStagesHelped": [
-      "targeting",
-      "exploring",
-      "interviewing"
-    ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "understanding the role"
-    ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-02-18",
-    "visible": false
-  },
-  {
-    "id": "m34",
-    "name": "Anika Sharma",
-    "field": "UX Research",
-    "role": "Senior UX Researcher",
-    "company": "Oakridge Insights",
-    "yearsExperience": 10,
-    "path": "sociology grad who started in market research",
-    "careerStagesHelped": [
-      "exploring"
-    ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "interview prep"
-    ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-01-24",
-    "visible": true
-  },
-  {
-    "id": "m35",
-    "name": "Peter Novak",
+    "display_name": "Carlos Ortega",
+    "opted_in": true,
+    "status": "active",
     "field": "UX Research",
     "role": "Research Manager",
     "company": "Microsoft",
-    "yearsExperience": 4,
-    "path": "started as a survey analyst",
-    "careerStagesHelped": [
-      "applying"
+    "industry": "Technology",
+    "years_experience": 3,
+    "major": "Anthropology",
+    "switched_from_field": "Academia",
+    "path_tags": [
+      "anthropology",
+      "career-switcher",
+      "first-job-focused"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "resume feedback",
-      "interview prep"
+    "stages": [
+      "exploring",
+      "targeting_role"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-01-19",
-    "visible": true
+    "help_types": [
+      "company_insights",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "3 years in ux research; left anthropology research for tech. Currently a Research Manager at Microsoft.",
+    "can_speak_to": [
+      "running interviews and surveys",
+      "research portfolios",
+      "academic to industry moves"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m33",
+    "display_name": "Olivia Hart",
+    "opted_in": true,
+    "status": "active",
+    "field": "UX Research",
+    "role": "Research Manager",
+    "company": "Fieldnote Co",
+    "industry": "Technology",
+    "years_experience": 4,
+    "major": "Nursing",
+    "switched_from_field": "Nursing",
+    "path_tags": [
+      "nursing",
+      "career-switcher",
+      "self-taught",
+      "grad-school"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
+      "interviewing"
+    ],
+    "help_types": [
+      "career_path_advice",
+      "role_deep_dive",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 6,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "unpaid work or free projects",
+      "legal or visa advice"
+    ],
+    "bio_for_explanations": "4 years in ux research; moved from nursing into UX research. Currently a Research Manager at Fieldnote Co.",
+    "can_speak_to": [
+      "running interviews and surveys",
+      "influencing product decisions",
+      "research portfolios"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m34",
+    "display_name": "Marcus Reed",
+    "opted_in": true,
+    "status": "active",
+    "field": "UX Research",
+    "role": "Research Operations Lead",
+    "company": "Microsoft",
+    "industry": "Technology",
+    "years_experience": 4,
+    "major": "Sociology",
+    "switched_from_field": "Market Research",
+    "path_tags": [
+      "sociology",
+      "career-switcher",
+      "grad-school"
+    ],
+    "stages": [
+      "targeting_role",
+      "interviewing"
+    ],
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "role_deep_dive",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "legal or visa advice",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "4 years in ux research; started in market research and moved to UX. Currently a Research Operations Lead at Microsoft.",
+    "can_speak_to": [
+      "influencing product decisions",
+      "research methods",
+      "research portfolios"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m35",
+    "display_name": "Diego Santos",
+    "opted_in": true,
+    "status": "active",
+    "field": "Marketing",
+    "role": "Marketing Associate",
+    "company": "Crestline Brands",
+    "industry": "Media & Consumer",
+    "years_experience": 18,
+    "major": "English",
+    "switched_from_field": "Journalism",
+    "path_tags": [
+      "english",
+      "career-switcher",
+      "first-job-focused",
+      "grad-school"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
+      "interviewing"
+    ],
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 5,
+    "requests_this_month": 5,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "18 years in marketing; moved from writing for newspapers to content strategy. Currently a Marketing Associate at Crestline Brands.",
+    "can_speak_to": [
+      "brand vs growth roles",
+      "building a marketing portfolio",
+      "analytics for marketers"
+    ],
+    "owner_user": null
   },
   {
     "id": "m36",
-    "name": "Marcus Reed",
+    "display_name": "Owen Fitzgerald",
+    "opted_in": true,
+    "status": "active",
     "field": "Marketing",
-    "role": "Growth Marketer",
-    "company": "HubSpot",
-    "yearsExperience": 5,
-    "path": "English major turned content strategist",
-    "careerStagesHelped": [
-      "targeting",
-      "exploring"
+    "role": "Marketing Director",
+    "company": "Patagonia",
+    "industry": "Media & Consumer",
+    "years_experience": 22,
+    "major": "Communications",
+    "switched_from_field": null,
+    "path_tags": [
+      "communications",
+      "freelance"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "choosing a path",
-      "resume feedback"
+    "stages": [
+      "interviewing"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-09-10",
-    "visible": true
+    "help_types": [
+      "company_insights",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 2,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "job placement guarantees",
+      "reviewing full code projects",
+      "legal or visa advice"
+    ],
+    "bio_for_explanations": "22 years in marketing; grew from agency work to an in-house team. Currently a Marketing Director at Patagonia.",
+    "can_speak_to": [
+      "freelance projects",
+      "building a marketing portfolio",
+      "agency vs in-house"
+    ],
+    "owner_user": null
   },
   {
     "id": "m37",
-    "name": "Olivia Hart",
+    "display_name": "Camila Reyes",
+    "opted_in": true,
+    "status": "paused",
     "field": "Marketing",
     "role": "Growth Marketer",
-    "company": "Nike",
-    "yearsExperience": 3,
-    "path": "former event planner now in growth marketing",
-    "careerStagesHelped": [
-      "exploring",
-      "interviewing"
+    "company": "Mailchimp",
+    "industry": "Media & Consumer",
+    "years_experience": 5,
+    "major": "Business",
+    "switched_from_field": "Sales",
+    "path_tags": [
+      "business",
+      "career-switcher",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "resume feedback",
-      "understanding the role"
+    "stages": [
+      "applying"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-09-14",
-    "visible": true
+    "help_types": [
+      "mock_interview",
+      "company_insights",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "reviewing full code projects",
+      "salary negotiation scripts",
+      "mentoring over text at odd hours"
+    ],
+    "bio_for_explanations": "5 years in marketing; started in sales and moved into brand marketing. Currently a Growth Marketer at Mailchimp.",
+    "can_speak_to": [
+      "analytics for marketers",
+      "building a marketing portfolio",
+      "standing out in applications"
+    ],
+    "owner_user": null
   },
   {
     "id": "m38",
-    "name": "Imani Johnson",
+    "display_name": "Elena Petrova",
+    "opted_in": true,
+    "status": "active",
     "field": "Marketing",
-    "role": "Marketing Associate",
-    "company": "Patagonia",
-    "yearsExperience": 22,
-    "path": "started in sales then moved to brand",
-    "careerStagesHelped": [
-      "interviewing",
-      "targeting",
-      "applying"
+    "role": "Social Media Manager",
+    "company": "Nike",
+    "industry": "Media & Consumer",
+    "years_experience": 18,
+    "major": "Event Management",
+    "switched_from_field": "Event Planning",
+    "path_tags": [
+      "events",
+      "career-switcher",
+      "first-job-focused",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "understanding the role"
+    "stages": [
+      "targeting_role"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-07-26",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "resume_review"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 6,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "mentoring over text at odd hours"
+    ],
+    "bio_for_explanations": "18 years in marketing; moved from event planning into growth marketing. Currently a Social Media Manager at Nike.",
+    "can_speak_to": [
+      "freelance projects",
+      "agency vs in-house",
+      "brand vs growth roles"
+    ],
+    "owner_user": null
   },
   {
     "id": "m39",
-    "name": "Rosa Delgado",
-    "field": "Marketing",
-    "role": "Brand Marketing Manager",
-    "company": "Mailchimp",
-    "yearsExperience": 4,
-    "path": "self-taught marketer from a nonprofit",
-    "careerStagesHelped": [
-      "exploring",
-      "applying",
-      "interviewing"
-    ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "understanding the role"
-    ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-08-27",
-    "visible": true
-  },
-  {
-    "id": "m40",
-    "name": "Rob Campbell",
+    "display_name": "Dana Schwartz",
+    "opted_in": true,
+    "status": "active",
     "field": "Marketing",
     "role": "Marketing Associate",
     "company": "Sunrise Media",
-    "yearsExperience": 2,
-    "path": "communications degree, agency to in-house",
-    "careerStagesHelped": [
+    "industry": "Media & Consumer",
+    "years_experience": 22,
+    "major": "Psychology",
+    "switched_from_field": null,
+    "path_tags": [
+      "psychology",
+      "freelance"
+    ],
+    "stages": [
+      "applying"
+    ],
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "networking_advice"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 4,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "legal or visa advice",
+      "reviewing full code projects",
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "22 years in marketing; studied psychology and joined a marketing team. Currently a Marketing Associate at Sunrise Media.",
+    "can_speak_to": [
+      "freelance projects",
+      "standing out in applications",
+      "brand vs growth roles"
+    ],
+    "owner_user": null
+  },
+  {
+    "id": "m40",
+    "display_name": "Nate Peterson",
+    "opted_in": true,
+    "status": "active",
+    "field": "Marketing",
+    "role": "Social Media Manager",
+    "company": "HubSpot",
+    "industry": "Media & Consumer",
+    "years_experience": 18,
+    "major": "Biology",
+    "switched_from_field": "Nonprofit Work",
+    "path_tags": [
+      "biology",
+      "career-switcher",
+      "first-job-focused"
+    ],
+    "stages": [
       "exploring",
+      "targeting_role",
       "applying",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path",
-      "resume feedback"
+    "help_types": [
+      "resume_review",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 1,
-    "consentAt": "2026-02-26",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 4,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "salary negotiation scripts"
+    ],
+    "bio_for_explanations": "18 years in marketing; moved from nonprofit work into marketing. Currently a Social Media Manager at HubSpot.",
+    "can_speak_to": [
+      "freelance projects",
+      "agency vs in-house",
+      "brand vs growth roles"
+    ],
+    "owner_user": null
   },
   {
     "id": "m41",
-    "name": "Omar Farouk",
-    "field": "Marketing",
-    "role": "Marketing Director",
-    "company": "Mailchimp",
-    "yearsExperience": 3,
-    "path": "switched from journalism to marketing",
-    "careerStagesHelped": [
-      "interviewing",
-      "targeting",
-      "exploring"
+    "display_name": "Mei Lin",
+    "opted_in": true,
+    "status": "active",
+    "field": "Finance",
+    "role": "Investment Associate",
+    "company": "Goldman Sachs",
+    "industry": "Financial Services",
+    "years_experience": 8,
+    "major": "Mathematics",
+    "switched_from_field": null,
+    "path_tags": [
+      "mathematics",
+      "big-company"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "interview prep",
-      "choosing a path"
+    "stages": [
+      "applying"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-02-25",
-    "visible": true
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 4,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 2,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "mentoring over text at odd hours",
+      "job placement guarantees",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "8 years in finance; mathematics major who started in banking. Currently an Investment Associate at Goldman Sachs.",
+    "can_speak_to": [
+      "finance interviews",
+      "switching into finance",
+      "non-target school paths"
+    ],
+    "owner_user": null
   },
   {
     "id": "m42",
-    "name": "Hiro Sato",
+    "display_name": "Rob Campbell",
+    "opted_in": true,
+    "status": "active",
     "field": "Finance",
-    "role": "Finance Manager",
-    "company": "Fidelity",
-    "yearsExperience": 22,
-    "path": "math major, started in banking",
-    "careerStagesHelped": [
+    "role": "Risk Analyst",
+    "company": "Goldman Sachs",
+    "industry": "Financial Services",
+    "years_experience": 10,
+    "major": "Education",
+    "switched_from_field": "Teaching",
+    "path_tags": [
+      "education",
+      "career-switcher",
+      "startup",
+      "internship-path"
+    ],
+    "stages": [
       "exploring",
-      "applying"
+      "interviewing"
     ],
-    "topicsOpenTo": [
-      "resume feedback",
-      "choosing a path",
-      "interview prep",
-      "understanding the role"
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "networking_advice",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-03-10",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "mentoring over text at odd hours",
+      "personal introductions to executives",
+      "reviewing full code projects"
+    ],
+    "bio_for_explanations": "10 years in finance; former teacher who moved into finance. Currently a Risk Analyst at Goldman Sachs.",
+    "can_speak_to": [
+      "switching into finance",
+      "modeling basics",
+      "non-target school paths"
+    ],
+    "owner_user": null
   },
   {
     "id": "m43",
-    "name": "Elena Petrova",
+    "display_name": "Noor Rahman",
+    "opted_in": true,
+    "status": "active",
     "field": "Finance",
-    "role": "Finance Manager",
-    "company": "Fidelity",
-    "yearsExperience": 12,
-    "path": "former teacher who moved into finance",
-    "careerStagesHelped": [
+    "role": "Financial Analyst",
+    "company": "Goldman Sachs",
+    "industry": "Financial Services",
+    "years_experience": 10,
+    "major": "Accounting",
+    "switched_from_field": null,
+    "path_tags": [
+      "accounting",
+      "internship-path",
+      "freelance"
+    ],
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "interview prep",
-      "understanding the role"
+    "help_types": [
+      "career_path_advice",
+      "mock_interview"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-05-24",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 3,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "10 years in finance; started in accounting and moved to analysis. Currently a Financial Analyst at Goldman Sachs.",
+    "can_speak_to": [
+      "modeling basics",
+      "non-target school paths",
+      "switching into finance"
+    ],
+    "owner_user": null
   },
   {
     "id": "m44",
-    "name": "Ingrid Larsen",
-    "field": "Finance",
-    "role": "Investment Associate",
-    "company": "Ironwood Capital",
-    "yearsExperience": 12,
-    "path": "community college path to analyst",
-    "careerStagesHelped": [
-      "exploring",
+    "display_name": "Ben Kowalski",
+    "opted_in": true,
+    "status": "active",
+    "field": "Nonprofit",
+    "role": "Development Director",
+    "company": "Common Ground",
+    "industry": "Nonprofit",
+    "years_experience": 22,
+    "major": "Social Work",
+    "switched_from_field": null,
+    "path_tags": [
+      "social-work",
+      "first-job-focused"
+    ],
+    "stages": [
       "applying"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path"
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "role_deep_dive",
+      "networking_advice"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 5,
-    "consentAt": "2026-02-26",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 6,
+    "requests_this_month": 1,
+    "not_open_to": [
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "22 years in nonprofit; studied social work and moved into program leadership. Currently a Development Director at Common Ground.",
+    "can_speak_to": [
+      "mission-driven careers",
+      "grant writing basics",
+      "program management"
+    ],
+    "owner_user": null
   },
   {
     "id": "m45",
-    "name": "Fatima Al-Sayed",
+    "display_name": "Omar Farouk",
+    "opted_in": true,
+    "status": "active",
     "field": "Nonprofit",
     "role": "Development Director",
-    "company": "Habitat for Humanity",
-    "yearsExperience": 12,
-    "path": "social work degree to program leadership",
-    "careerStagesHelped": [
-      "interviewing",
-      "exploring"
+    "company": "Open Doors Collective",
+    "industry": "Nonprofit",
+    "years_experience": 3,
+    "major": "Computer Science",
+    "switched_from_field": "Software Engineering",
+    "path_tags": [
+      "computer-science",
+      "career-switcher",
+      "grad-school"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "interview prep"
+    "stages": [
+      "exploring",
+      "targeting_role",
+      "applying",
+      "interviewing"
     ],
-    "monthlyLimit": 2,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-03-26",
-    "visible": true
+    "help_types": [
+      "career_path_advice",
+      "mock_interview"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 5,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 4,
+    "requests_this_month": 3,
+    "not_open_to": [
+      "reviewing full code projects"
+    ],
+    "bio_for_explanations": "3 years in nonprofit; former software engineer who moved into nonprofit work. Currently a Development Director at Open Doors Collective.",
+    "can_speak_to": [
+      "grant writing basics",
+      "volunteering into a career",
+      "mission-driven careers"
+    ],
+    "owner_user": null
   },
   {
     "id": "m46",
-    "name": "Kenji Watanabe",
-    "field": "Nonprofit",
-    "role": "Program Manager",
-    "company": "Riverbend Foundation",
-    "yearsExperience": 6,
-    "path": "former software engineer who moved to nonprofit work",
-    "careerStagesHelped": [
+    "display_name": "Rosa Delgado",
+    "opted_in": true,
+    "status": "active",
+    "field": "Healthcare",
+    "role": "Clinical Operations Manager",
+    "company": "Meridian Health",
+    "industry": "Healthcare",
+    "years_experience": 5,
+    "major": "Nursing",
+    "switched_from_field": null,
+    "path_tags": [
+      "nursing",
+      "freelance"
+    ],
+    "stages": [
+      "targeting_role",
       "applying"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "resume feedback"
+    "help_types": [
+      "resume_review",
+      "mock_interview",
+      "company_insights",
+      "networking_advice"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-08-24",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time",
+      "monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "salary negotiation scripts",
+      "job placement guarantees",
+      "mentoring over text at odd hours"
+    ],
+    "bio_for_explanations": "5 years in healthcare; nurse who moved into clinical operations. Currently a Clinical Operations Manager at Meridian Health.",
+    "can_speak_to": [
+      "clinical vs non-clinical roles",
+      "getting hospital experience",
+      "healthcare career paths"
+    ],
+    "owner_user": null
   },
   {
     "id": "m47",
-    "name": "Vikram Joshi",
+    "display_name": "Paul Anderson",
+    "opted_in": true,
+    "status": "active",
     "field": "Healthcare",
     "role": "Health Policy Analyst",
-    "company": "Cedar Valley Hospital",
-    "yearsExperience": 10,
-    "path": "nurse who moved into health operations",
-    "careerStagesHelped": [
-      "targeting",
-      "interviewing"
+    "company": "Mayo Clinic",
+    "industry": "Healthcare",
+    "years_experience": 22,
+    "major": "Public Health",
+    "switched_from_field": null,
+    "path_tags": [
+      "public-health",
+      "freelance",
+      "internship-path"
     ],
-    "topicsOpenTo": [
-      "understanding the role",
-      "resume feedback",
-      "choosing a path"
+    "stages": [
+      "exploring",
+      "targeting_role"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 0,
-    "consentAt": "2026-07-13",
-    "visible": false
+    "help_types": [
+      "company_insights",
+      "role_deep_dive"
+    ],
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "async_chat",
+    "meeting_length_minutes": 20,
+    "monthly_limit": 6,
+    "requests_this_month": 4,
+    "not_open_to": [
+      "job placement guarantees"
+    ],
+    "bio_for_explanations": "22 years in healthcare; public health graduate who moved into policy. Currently a Health Policy Analyst at Mayo Clinic.",
+    "can_speak_to": [
+      "clinical vs non-clinical roles",
+      "healthcare career paths",
+      "health data"
+    ],
+    "owner_user": null
   },
   {
     "id": "m48",
-    "name": "Carlos Ortega",
+    "display_name": "Liam O'Brien",
+    "opted_in": true,
+    "status": "active",
     "field": "Healthcare",
     "role": "Clinical Operations Manager",
     "company": "Cedar Valley Hospital",
-    "yearsExperience": 5,
-    "path": "public health grad into policy",
-    "careerStagesHelped": [
+    "industry": "Healthcare",
+    "years_experience": 6,
+    "major": "Biology",
+    "switched_from_field": "Research",
+    "path_tags": [
+      "biology",
+      "career-switcher",
+      "big-company"
+    ],
+    "stages": [
       "exploring",
-      "applying",
-      "targeting"
+      "applying"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "choosing a path",
-      "resume feedback"
+    "help_types": [
+      "career_path_advice",
+      "company_insights",
+      "role_deep_dive",
+      "portfolio_feedback"
     ],
-    "monthlyLimit": 5,
-    "requestsThisMonth": 4,
-    "consentAt": "2026-07-18",
-    "visible": true
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 3,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly",
+      "three_times_monthly"
+    ],
+    "max_engagement_months": 1,
+    "meeting_channel": "video_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 6,
+    "requests_this_month": 2,
+    "not_open_to": [
+      "legal or visa advice",
+      "unpaid work or free projects"
+    ],
+    "bio_for_explanations": "6 years in healthcare; left bench research for health informatics. Currently a Clinical Operations Manager at Cedar Valley Hospital.",
+    "can_speak_to": [
+      "getting hospital experience",
+      "health data",
+      "clinical vs non-clinical roles"
+    ],
+    "owner_user": null
   },
   {
     "id": "m49",
-    "name": "Diego Santos",
+    "display_name": "Sanjay Gupta",
+    "opted_in": true,
+    "status": "active",
     "field": "Education",
     "role": "Learning Experience Designer",
-    "company": "Coursera",
-    "yearsExperience": 2,
-    "path": "former teacher turned instructional designer",
-    "careerStagesHelped": [
+    "company": "Maple Street Schools",
+    "industry": "Education",
+    "years_experience": 5,
+    "major": "Education",
+    "switched_from_field": "Teaching",
+    "path_tags": [
+      "education",
+      "career-switcher",
+      "mentor-minded",
+      "freelance"
+    ],
+    "stages": [
       "exploring",
+      "targeting_role",
+      "applying",
       "interviewing"
     ],
-    "topicsOpenTo": [
-      "interview prep",
-      "understanding the role",
-      "choosing a path",
-      "resume feedback"
+    "help_types": [
+      "resume_review",
+      "role_deep_dive"
     ],
-    "monthlyLimit": 4,
-    "requestsThisMonth": 3,
-    "consentAt": "2026-06-23",
-    "visible": true
+    "meeting_types": [
+      "one_on_one"
+    ],
+    "group_size_max": null,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 2,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 45,
+    "monthly_limit": 6,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "asking for a referral in a first chat",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "5 years in education; former teacher turned instructional designer. Currently a Learning Experience Designer at Maple Street Schools.",
+    "can_speak_to": [
+      "instructional design",
+      "building a portfolio",
+      "teaching to industry moves"
+    ],
+    "owner_user": null
   },
   {
     "id": "m50",
-    "name": "Leila Karimi",
+    "display_name": "Zara Ahmed",
+    "opted_in": true,
+    "status": "active",
     "field": "Education",
-    "role": "Learning Experience Designer",
+    "role": "Curriculum Designer",
     "company": "Coursera",
-    "yearsExperience": 2,
-    "path": "started in tutoring and moved into edtech",
-    "careerStagesHelped": [
-      "interviewing",
-      "applying",
-      "exploring"
+    "industry": "Education",
+    "years_experience": 18,
+    "major": "English",
+    "switched_from_field": null,
+    "path_tags": [
+      "english",
+      "first-job-focused",
+      "self-taught"
     ],
-    "topicsOpenTo": [
-      "choosing a path",
-      "understanding the role",
-      "resume feedback",
-      "interview prep"
+    "stages": [
+      "exploring",
+      "interviewing"
     ],
-    "monthlyLimit": 3,
-    "requestsThisMonth": 2,
-    "consentAt": "2026-09-14",
-    "visible": true
+    "help_types": [
+      "role_deep_dive",
+      "networking_advice",
+      "portfolio_feedback"
+    ],
+    "meeting_types": [
+      "group",
+      "one_on_one"
+    ],
+    "group_size_max": 8,
+    "cadence_options": [
+      "one_time",
+      "twice_monthly"
+    ],
+    "max_engagement_months": 3,
+    "meeting_channel": "phone_call",
+    "meeting_length_minutes": 30,
+    "monthly_limit": 3,
+    "requests_this_month": 0,
+    "not_open_to": [
+      "unpaid work or free projects",
+      "personal introductions to executives"
+    ],
+    "bio_for_explanations": "18 years in education; started tutoring and moved into edtech. Currently a Curriculum Designer at Coursera.",
+    "can_speak_to": [
+      "edtech careers",
+      "teaching to industry moves",
+      "instructional design"
+    ],
+    "owner_user": null
   }
 ]
