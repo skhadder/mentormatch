@@ -3,7 +3,7 @@
 // slow, error, bad output) this returns null and callers use their templates.
 import Anthropic from "@anthropic-ai/sdk";
 
-const MODEL = process.env.MENTORMATCH_MODEL || "claude-opus-5-5";
+const MODEL = process.env.MENTORMATCH_MODEL || "claude-haiku-5-5";
 const TIMEOUT_MS = 12_000;
 
 let client: Anthropic | null = null;

@@ -3,6 +3,7 @@ import { askJson } from "@/lib/llm";
 import { parseProfile } from "@/lib/profile";
 import { buildPlaybook, isGroup, isRecurring, mergeAi, sessionCount, templateFollowUp } from "@/lib/playbook";
 import { GROUNDING } from "@/lib/prompts";
+import { allow, clientIp } from "@/lib/rateLimit";
 import { loadDb } from "@/lib/store";
 
 // Returns an AI-written playbook merged over the template. Never throws to the
@@ -17,6 +18,8 @@ export async function POST(req: Request) {
     const variant = Number.isInteger(b.variant) ? (b.variant as number) : 0;
 
     const base = buildPlaybook(profile, mentor, variant);
+    // Over the limit: return the template version so the page never breaks.
+    if (!allow(`playbook:${clientIp(req)}`)) return ok({ playbook: base, source: "template" });
     const n = sessionCount(profile);
     const shape: Record<string, string> = {
       goal: "string: one sentence goal for the conversation",

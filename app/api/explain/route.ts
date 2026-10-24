@@ -1,9 +1,11 @@
 import { body, fail, guard, ok } from "@/lib/api";
 import { templateExplanation } from "@/lib/explain";
+import { validateExplanation } from "@/lib/explainValidation";
 import { askJson } from "@/lib/llm";
 import { matchMentors } from "@/lib/matching";
 import { parseProfile } from "@/lib/profile";
 import { GROUNDING } from "@/lib/prompts";
+import { allow, clientIp } from "@/lib/rateLimit";
 import { loadDb } from "@/lib/store";
 
 // AI-written "Why this match" sentence. It is built from the same scoring data
@@ -19,6 +21,8 @@ export async function POST(req: Request) {
     if (!result) return fail("This mentor no longer matches.", 409);
 
     const template = templateExplanation(result, profile);
+    // Over the limit: answer with the template so the page never breaks.
+    if (!allow(`explain:${clientIp(req)}`)) return ok({ explanation: template, source: "template" });
     const ai = (await askJson(
       GROUNDING,
       JSON.stringify({
@@ -36,7 +40,7 @@ export async function POST(req: Request) {
     )) as { explanation?: unknown } | null;
 
     const text = typeof ai?.explanation === "string" ? ai.explanation.trim() : "";
-    const good = text.length > 10 && text.length < 400 && !text.includes("\n");
+    const good = validateExplanation(text, result, profile);
     return ok({ explanation: good ? text : template, source: good ? "ai" : "template" });
   });
 }
