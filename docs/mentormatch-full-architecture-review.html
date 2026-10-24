@@ -1,0 +1,902 @@
+
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MentorMatch — Full Architecture Review</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1f2328;
+    background: #fff;
+    padding: 2rem 1rem 4rem;
+  }
+  .page { max-width: 760px; margin: 0 auto; }
+
+  /* Typography */
+  h1 { font-size: 1.65rem; font-weight: 700; margin-bottom: .2rem; }
+  h2 { font-size: 1.05rem; font-weight: 700; margin: 2.4rem 0 .6rem; color: #1f2328; border-bottom: 2px solid #e5e7eb; padding-bottom: .35rem; }
+  h3 { font-size: .9rem; font-weight: 700; margin: 1.4rem 0 .35rem; }
+  h4 { font-size: .85rem; font-weight: 700; margin: 1rem 0 .25rem; color: #3730a3; }
+  p  { margin-bottom: .6rem; }
+  ul, ol { padding-left: 1.5rem; margin-bottom: .6rem; }
+  li { margin-bottom: .3rem; }
+  code {
+    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+    font-size: .82em;
+    background: #f3f4f6;
+    padding: .1em .38em;
+    border-radius: 3px;
+  }
+  pre {
+    background: #f7f8fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: .9rem 1rem;
+    font-size: .8rem;
+    line-height: 1.55;
+    overflow-x: auto;
+    margin-bottom: .8rem;
+    font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+  }
+  a { color: #3b82d4; }
+
+  /* Meta row */
+  .meta { font-size: .78rem; color: #57606a; margin-bottom: 2rem; }
+  .meta span { margin-right: 1.4rem; }
+
+  /* TOC */
+  .toc { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 8px; padding: .9rem 1.2rem; margin-bottom: 2rem; }
+  .toc h3 { margin-top: 0; margin-bottom: .5rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: #57606a; }
+  .toc ol { margin-bottom: 0; font-size: .82rem; }
+  .toc li { margin-bottom: .15rem; }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    font-size: .7rem; font-weight: 700;
+    padding: .12em .55em;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: .35rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+  .crit   { background: #fee2e2; color: #7f1d1d; }
+  .high   { background: #fde8e8; color: #b91c1c; }
+  .medium { background: #fef3c7; color: #92400e; }
+  .low    { background: #dcfce7; color: #166534; }
+  .effort-low    { background: #e0f2fe; color: #0369a1; }
+  .effort-med    { background: #ede9fe; color: #5b21b6; }
+  .effort-high   { background: #fce7f3; color: #9d174d; }
+
+  /* Section boxes & callouts */
+  .box {
+    background: #f7f8fa; border: 1px solid #e5e7eb;
+    border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1rem;
+  }
+  .strength { border-left: 3px solid #22c55e; padding: .4rem .9rem; margin-bottom: .5rem; }
+  .finding  { border-left: 3px solid #e5e7eb; padding: .5rem 1rem; margin-bottom: 1.1rem; }
+  .finding.f-crit   { border-color: #dc2626; }
+  .finding.f-high   { border-color: #ef4444; }
+  .finding.f-medium { border-color: #f59e0b; }
+  .finding.f-low    { border-color: #22c55e; }
+  .finding-title { font-weight: 700; margin-bottom: .3rem; font-size: .9rem; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: .8rem; margin-bottom: 1rem; }
+  th { text-align: left; padding: .5rem .65rem; background: #f7f8fa; border-bottom: 2px solid #e5e7eb; font-weight: 700; color: #57606a; font-size: .75rem; text-transform: uppercase; letter-spacing: .04em; }
+  td { padding: .45rem .65rem; border-bottom: 1px solid #f0f0f0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) { background: #fafafa; }
+
+  /* Diagram box */
+  .diagram {
+    background: #f7f8fa; border: 1px solid #e5e7eb;
+    border-radius: 8px; padding: 1.2rem;
+    font-size: .78rem; margin-bottom: 1rem;
+  }
+  .diagram pre { background: transparent; border: none; padding: 0; margin: 0; }
+
+  /* Grid */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-bottom: 1rem; }
+  @media (max-width: 540px) { .grid2 { grid-template-columns: 1fr; } }
+  .cell { background: #f7f8fa; border: 1px solid #e5e7eb; border-radius: 7px; padding: .8rem 1rem; }
+  .cell-title { font-weight: 700; font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: #57606a; margin-bottom: .35rem; }
+
+  /* Numbered section header */
+  .section-id { display: inline-block; background: #1f2328; color: #fff; border-radius: 4px; padding: .05em .4em; font-size: .75rem; font-weight: 700; margin-right: .4rem; vertical-align: middle; }
+
+  hr { border: none; border-top: 1px solid #e5e7eb; margin: 2.2rem 0; }
+
+  footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; text-align: center; font-size: .72rem; color: #57606a; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>MentorMatch — Full Architecture Review</h1>
+<div class="meta">
+  <span>Role: Senior Software Architect</span>
+  <span>Codebase: Next.js 16 · App Router · TypeScript</span>
+  <span>Findings: 16 items · Priority 1: 4 · Priority 2: 7 · Priority 3: 5</span>
+</div>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li>Executive Summary</li>
+    <li>Architecture Overview — Components, Responsibilities, Data Flow</li>
+    <li>Architecture Diagram</li>
+    <li>Findings and Weaknesses Table</li>
+    <li>Detailed Recommendations (with code examples)</li>
+    <li>Alternative Architecture Analysis</li>
+    <li>Prioritized Action Plan</li>
+    <li>Overall Assessment</li>
+  </ol>
+</div>
+
+
+<h2><span class="section-id">A</span> Executive Summary</h2>
+
+<p>
+  MentorMatch is a well-structured, intentionally minimal <strong>Next.js 16 App Router monolith</strong>
+  built as a hackathon prototype. Its stated purpose — transparent, fairness-tested mentor matching for students
+  without professional networks — is served effectively by the current architecture.
+  The codebase is noticeably thoughtful for a prototype: domain logic is cleanly separated from HTTP
+  concerns, AI is optional at every call site, and a fairness audit is structurally enforced and tested.
+</p>
+<p>
+  However, the architecture has a small number of <strong>serious correctness issues</strong> that would cause
+  real data integrity problems under load, three <strong>security gaps</strong> that are trivially exploitable,
+  and several <strong>reliability and maintainability issues</strong> that would compound as the application grows.
+  None of these require architectural rewrites — they are all fixable with targeted, low-risk changes to
+  existing files.
+</p>
+<p>
+  The <strong>three most impactful improvements</strong>, in order:
+</p>
+<ol>
+  <li><strong>Fix the write-concurrency race condition</strong> in <code>lib/store.ts</code> — it allows mentor over-booking and corrupted capacity counts.</li>
+  <li><strong>Add a secret-header guard to the three unauthenticated write surfaces</strong> — the mentor PATCH/DELETE routes and the seed reset route expose the entire data store to anonymous mutation.</li>
+  <li><strong>Add per-IP rate limiting to the AI routes</strong> — one HTTP loop can exhaust the Anthropic quota and incur unbounded cost.</li>
+</ol>
+<p>
+  The current architecture is <strong>appropriate for a demo/prototype</strong>. It is <em>not yet appropriate</em>
+  for a public deployment with real mentors and real students. The changes required to reach production-readiness
+  are moderate in scope and do not require a platform change.
+</p>
+
+
+<h2><span class="section-id">B</span> Architecture Overview</h2>
+
+<h3>Technology Stack</h3>
+<div class="grid2">
+  <div class="cell"><div class="cell-title">Runtime &amp; Framework</div>Next.js 16.4 (App Router) · React 19 · TypeScript 5 · Node.js (darwin/arm64 confirmed)</div>
+  <div class="cell"><div class="cell-title">Styling</div>Tailwind CSS 4 via @tailwindcss/turbopack (Turbopack dev server)</div>
+  <div class="cell"><div class="cell-title">AI</div>@anthropic-ai/sdk ^1.3.0 · Model: claude-opus-5-5 (configurable via <code>MENTORMATCH_MODEL</code>)</div>
+  <div class="cell"><div class="cell-title">Persistence</div>Single JSON file at <code>.data/db.json</code> · Atomic writes via tmp-rename · No database</div>
+  <div class="cell"><div class="cell-title">Testing</div>Vitest 5.0.5 · 2 test files · ~40 test cases · Unit-level only</div>
+  <div class="cell"><div class="cell-title">Build tooling</div>ESLint 9 · next/eslint-config-next · No Prettier · No CI configuration found</div>
+</div>
+
+<h3>Layer Structure</h3>
+<p>The application follows a clean <strong>3-layer architecture</strong>:</p>
+<ul>
+  <li><strong>Domain layer (<code>lib/</code>)</strong> — pure or near-pure TypeScript functions with no framework dependencies. Covers: types, matching algorithm, request lifecycle rules, fairness audit, playbook generation, mentor settings validation, input parsing, and AI client wrapper.</li>
+  <li><strong>API layer (<code>app/api/</code>)</strong> — thin Next.js route handlers. Each file is typically 10–25 lines. Responsibilities: parse input, delegate to domain functions, return JSON. No business logic lives here.</li>
+  <li><strong>UI layer (<code>app/</code> pages + <code>components/</code>)</strong> — React 19 client components. State is managed locally in each page. No global state manager (no Redux, Zustand, Context). Cross-page state passes through <code>sessionStorage</code> and <code>localStorage</code>.</li>
+</ul>
+
+<h3>Component Responsibilities</h3>
+<table>
+  <thead><tr><th>File / Module</th><th>Responsibility</th><th>Type</th></tr></thead>
+  <tbody>
+    <tr><td><code>lib/types.ts</code></td><td>Shared TypeScript interfaces and const-as-enum unions for <code>Mentor</code>, <code>StudentProfile</code>, <code>MeetingRequest</code>, and all domain enums</td><td>Types only</td></tr>
+    <tr><td><code>lib/matching.ts</code></td><td>Deterministic mentor scoring: hard filters → factor scores → weight application → fairness multiplier → top-3 sort. No AI.</td><td>Pure functions</td></tr>
+    <tr><td><code>lib/requests.ts</code></td><td>Meeting request lifecycle: create (with capacity reservation), accept, decline (with release), merge group requests, decline-all-pending</td><td>Pure functions over Db</td></tr>
+    <tr><td><code>lib/store.ts</code></td><td>JSON-file persistence: load, save (atomic), mutate (load→fn→save), reset. Server-only.</td><td>I/O adapter</td></tr>
+    <tr><td><code>lib/llm.ts</code></td><td>Anthropic API client wrapper: single <code>askJson()</code> call, 12s timeout, no retry, returns <code>null</code> on any failure</td><td>External API adapter</td></tr>
+    <tr><td><code>lib/fairness.ts</code></td><td>Fairness audit: runs <code>matchMentors()</code> five times with different names attached; reports whether results differ</td><td>Pure functions</td></tr>
+    <tr><td><code>lib/playbook.ts</code></td><td>Conversation playbook: template generation, AI output validation and merging, session plan and group etiquette</td><td>Pure functions</td></tr>
+    <tr><td><code>lib/profile.ts</code></td><td>Validates and normalises raw HTTP input into a well-typed <code>StudentProfile</code></td><td>Validator</td></tr>
+    <tr><td><code>lib/mentorSettings.ts</code></td><td>Validates mentor settings patch; defines editable fields allowlist; provides <code>publicMentor()</code> to strip internal fields</td><td>Validator + filter</td></tr>
+    <tr><td><code>lib/client.ts</code></td><td>Browser-only helpers: load/save profile and mentor ID in sessionStorage, request IDs in localStorage, typed <code>fetch</code> wrapper</td><td>Client utilities</td></tr>
+    <tr><td><code>app/api/match/route.ts</code></td><td>POST: parse profile → <code>matchMentors()</code> → template explanations → return results</td><td>Route handler</td></tr>
+    <tr><td><code>app/api/explain/route.ts</code></td><td>POST: re-run match for one mentor → call AI → validate output → return explanation or template fallback</td><td>Route handler + AI call</td></tr>
+    <tr><td><code>app/api/playbook/route.ts</code></td><td>POST: build template playbook → call AI → merge valid AI output → return playbook</td><td>Route handler + AI call</td></tr>
+    <tr><td><code>app/api/requests/route.ts</code></td><td>POST: parse profile → <code>mutate(createRequest)</code> → return request ID</td><td>Route handler</td></tr>
+    <tr><td><code>app/api/mentor/[id]/route.ts</code></td><td>GET: load mentor + requests. PATCH: validate + save settings. DELETE: opt-out + decline pending.</td><td>Route handler</td></tr>
+    <tr><td><code>app/api/seed/route.ts</code></td><td>POST: <code>resetDb()</code> — destroys all requests, restores seed mentors</td><td>Route handler (demo util)</td></tr>
+    <tr><td><code>components/MentorPortal.tsx</code></td><td>Full mentor management UI: capacity display, settings editor, request list with accept/decline/merge, profile remove/restore</td><td>Client component (~226 lines)</td></tr>
+    <tr><td><code>components/MentorCard.tsx</code></td><td>Single result card with score, explanation, matched chips, score breakdown table, and "Prepare to meet" action</td><td>Client component</td></tr>
+    <tr><td><code>components/RequestForm.tsx</code></td><td>Modal dialog for composing and sending a meeting request; shows session summary before the student writes their message</td><td>Client component</td></tr>
+  </tbody>
+</table>
+
+<h3>Data Flow — Student Path</h3>
+<p>
+  <strong>1. Intake (<code>/find</code>)</strong> — Student fills in 6 questions. Answers are saved to <code>sessionStorage</code> via <code>lib/client.ts:saveProfile()</code>. No server call until submit.
+  <br /><strong>2. Match (<code>/results</code>)</strong> — On mount, the saved profile is POSTed to <code>/api/match</code>. The server runs <code>matchMentors()</code> + attaches template explanations. Results render immediately. Then, up to 3 parallel POSTs to <code>/api/explain</code> upgrade each explanation with AI; the UI shows skeletons while these resolve.
+  <br /><strong>3. Playbook (<code>/playbook</code>)</strong> — On mount, the mentor ID is read from <code>sessionStorage</code>, the public mentor profile is fetched, the template playbook renders immediately, then <code>/api/playbook</code> is called to upgrade with AI output.
+  <br /><strong>4. Request (<code>/playbook</code> → dialog)</strong> — Student writes a message in a modal, POSTs to <code>/api/requests</code>. The request ID is saved to <code>localStorage</code>. Student can later visit <code>/requests</code> to check status.
+</p>
+
+<h3>Data Flow — Mentor Path</h3>
+<p>
+  <strong>1. Portal (<code>/mentor</code>)</strong> — Student selects a demo mentor (no real auth). ID saved to <code>sessionStorage</code>.
+  <br /><strong>2. View portal (<code>MentorPortal</code>)</strong> — GET <code>/api/mentor/[id]</code> returns the mentor object + all their requests. Mentor can PATCH settings or DELETE (opt-out) their profile. Requests can be accepted, declined, or merged.
+  <br /><strong>3. All mutations</strong> go through <code>lib/store.ts:mutate()</code>: load JSON → run domain function → save JSON.
+</p>
+
+
+<h2><span class="section-id">C</span> Architecture Diagram</h2>
+<div class="diagram">
+<pre>
+┌─────────────────────────────────────────────────────────────────┐
+│  BROWSER                                                         │
+│                                                                  │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────────┐   │
+│  │ /find    │  │ /results │  │/playbook │  │/mentor /reqs  │   │
+│  │(intake)  │  │(matches) │  │(prep)    │  │(portal+status)│   │
+│  └────┬─────┘  └──┬──┬───┘  └────┬─────┘  └──────┬────────┘   │
+│       │           │  │            │                │             │
+│       └── sessionStorage ─────────┘   localStorage (req IDs)   │
+│                   │  │            │                │             │
+└───────────────────┼──┼────────────┼────────────────┼────────────┘
+                    │  │            │                │
+          POST /api/match  POST /api/explain  GET|PATCH|DELETE
+                    │  │  POST /api/playbook  /api/mentor/[id]
+                    ▼  ▼            ▼         POST /api/requests
+┌─────────────────────────────────────────────────────────────────┐
+│  SERVER  (Next.js App Router — Node.js process)                  │
+│                                                                  │
+│  ┌────────────────────────────────────────────────────────────┐  │
+│  │  app/api/ — Route Handlers (thin adapters, ~10-25 lines)  │  │
+│  │  guard() wraps every handler; RuleError → 4xx JSON        │  │
+│  └──────────────────────┬─────────────────────────────────────┘  │
+│                         │                                        │
+│  ┌──────────────────────▼─────────────────────────────────────┐  │
+│  │  lib/ — Domain Layer (pure functions, no framework deps)   │  │
+│  │                                                            │  │
+│  │  matching.ts   requests.ts   playbook.ts   fairness.ts     │  │
+│  │  profile.ts    mentorSettings.ts  explain.ts  labels.ts    │  │
+│  │  format.ts     types.ts      prompts.ts                    │  │
+│  │                                                            │  │
+│  │  llm.ts ──────────────────────────────────► Anthropic API  │  │
+│  │  (askJson — returns null on any failure)                   │  │
+│  └──────────────────────┬─────────────────────────────────────┘  │
+│                         │                                        │
+│  ┌──────────────────────▼─────────────────────────────────────┐  │
+│  │  lib/store.ts — File I/O Adapter                           │  │
+│  │  loadDb() → JSON.parse(fs.readFileSync(...))               │  │
+│  │  saveDb() → tmp-file write + fs.renameSync (atomic)        │  │
+│  │  mutate() → load → fn(db) → save   ⚠ NOT thread-safe      │  │
+│  └──────────────────────┬─────────────────────────────────────┘  │
+│                         │                                        │
+│              .data/db.json  (single JSON file)                   │
+│              data/mentors.json  (seed — read-only)               │
+└─────────────────────────────────────────────────────────────────┘
+
+Legend:  ⚠ = confirmed weakness   ► = external call
+         [inferred: no real auth anywhere in the request path]
+</pre>
+</div>
+
+
+<h2><span class="section-id">D</span> Findings and Weaknesses</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Component / File</th>
+      <th>Issue</th>
+      <th>Evidence</th>
+      <th>Impact</th>
+      <th>Severity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>F-01</strong></td>
+      <td><code>lib/store.ts</code><br /><code>mutate()</code></td>
+      <td>Write-concurrency race condition — two simultaneous requests can both read the same DB state, both modify it, and both write, causing data loss or mentor over-booking</td>
+      <td><code>mutate()</code> comment says "synchronous, so requests cannot interleave" — false for concurrent HTTP requests in the same Node.js process</td>
+      <td>Mentor capacity counts become incorrect; students can book a full mentor; session counter drifts permanently</td>
+      <td><span class="badge crit">Critical</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-02</strong></td>
+      <td><code>app/api/mentor/[id]/route.ts</code><br /><code>app/api/mentor/[id]/requests/[rid]/route.ts</code><br /><code>app/api/mentor/[id]/merge/route.ts</code><br /><code>app/api/mentor/[id]/restore/route.ts</code></td>
+      <td>No authentication on mentor write routes — any client knowing a mentor ID can PATCH settings, DELETE a profile, accept/decline any request, or restore a removed profile</td>
+      <td><code>owner_user</code> field exists on <code>Mentor</code> but is never read in any route handler; comment says "DEMO ONLY: there is no real login"</td>
+      <td>Any anonymous actor can censor all mentor profiles or manipulate request decisions at will</td>
+      <td><span class="badge high">High</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-03</strong></td>
+      <td><code>app/api/seed/route.ts</code></td>
+      <td>Unauthenticated database reset — POST with no body destroys all requests and resets all mentor settings</td>
+      <td>Handler is 3 lines: <code>resetDb()</code> with no guard, no secret, no env check</td>
+      <td>Trivial denial-of-service: one HTTP call wipes all demo state</td>
+      <td><span class="badge high">High</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-04</strong></td>
+      <td><code>app/api/explain/route.ts</code><br /><code>app/api/playbook/route.ts</code></td>
+      <td>No rate limiting on AI endpoints — each request makes a live Anthropic API call with no per-IP throttle</td>
+      <td>No middleware, no token bucket, no IP check anywhere in the request path; <code>maxRetries: 0</code> in llm.ts avoids retry amplification but does nothing to stop volume attacks</td>
+      <td>Malicious loop drains API quota and incurs real cost; other users get template-only responses</td>
+      <td><span class="badge high">High</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-05</strong></td>
+      <td><code>lib/store.ts</code><br /><code>loadDb()</code></td>
+      <td>No schema validation on DB load — <code>JSON.parse(...) as Db</code> with no structural check</td>
+      <td>Any corrupted or hand-edited file passes silently; runtime errors surface deep in matching logic rather than at load time</td>
+      <td>Difficult-to-diagnose crashes; corrupted requests counter causes permanent mentor exclusion</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-06</strong></td>
+      <td><code>lib/store.ts</code><br /><code>loadDb()</code></td>
+      <td><code>requests_this_month</code> is never auto-reset — the counter fills permanently with no month-boundary logic</td>
+      <td>No <code>month_reset_at</code> field in <code>Mentor</code>; <code>loadDb()</code> does no time-based check</td>
+      <td>Mentors permanently disappear from matching at month end; can only be recovered by editing the JSON or calling <code>/api/seed</code></td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-07</strong></td>
+      <td><code>app/api/mentor/[id]/merge/route.ts</code></td>
+      <td>Input <code>ids</code> array is cast without validation — no length cap, no type check on individual elements</td>
+      <td><code>((await body(req)).ids as string[]) ?? []</code> — no Array.isArray check, no cap</td>
+      <td>A large array causes O(n·m) request scans; potential DoS under repeated calls</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-08</strong></td>
+      <td><code>app/api/explain/route.ts</code></td>
+      <td>AI output validation is length-only — accepts any 11–399 character, single-line string as a valid explanation</td>
+      <td>Validation gate: <code>text.length &gt; 10 &amp;&amp; text.length &lt; 400 &amp;&amp; !text.includes("\n")</code></td>
+      <td>Invented facts, contradictory explanations, or prompt-injection artefacts surface to students</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-09</strong></td>
+      <td><code>lib/store.ts</code><br />all route handlers</td>
+      <td>Full DB read on every request — <code>loadDb()</code> does a blocking synchronous <code>fs.readFileSync</code> on every API call with no in-memory cache</td>
+      <td><code>loadDb()</code> called in every route handler; no module-level cache; <code>/*turbopackIgnore*/</code> comment confirms intentional workaround but no caching</td>
+      <td>Each request incurs unnecessary disk I/O; latency grows linearly with file size as requests accumulate</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-10</strong></td>
+      <td><code>lib/requests.ts</code><br /><code>groupOf()</code>, <code>ownPending()</code>, <code>declineAllPending()</code></td>
+      <td>O(n) linear scans on every request operation — no indexed lookup for requests by ID or mentor</td>
+      <td>All three functions use <code>Array.find()</code> or <code>Array.filter()</code> on the full requests array</td>
+      <td>Performance degrades with volume; <code>mergeRequests()</code> is O(n·m) where n=requests, m=ids to merge</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-11</strong></td>
+      <td><code>app/api/</code> (all handlers)<br /><code>lib/llm.ts</code></td>
+      <td>No structured logging — errors reported via bare <code>console.error(e)</code> and <code>console.warn()</code> with no request ID, route, timestamp, or structured fields</td>
+      <td><code>lib/api.ts:guard()</code> — <code>console.error(e)</code>; <code>lib/llm.ts:askJson()</code> — <code>console.warn("AI call failed…")</code></td>
+      <td>Impossible to correlate a user's error report with a server log; AI failure rate is invisible</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-12</strong></td>
+      <td><code>tests/</code></td>
+      <td>No tests for route handlers, the store layer, or <code>parseProfile()</code> edge cases</td>
+      <td>Both test files test <code>lib/</code> functions only; no HTTP-level testing; <code>lib/store.ts</code> has zero test coverage</td>
+      <td>API contract regressions and store bugs would go undetected; confidence in refactoring is lower</td>
+      <td><span class="badge medium">Medium</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-13</strong></td>
+      <td><code>components/RequestForm.tsx</code><br /><code>lib/requests.ts:createRequest()</code></td>
+      <td>Message validation is split — the client only blocks on empty string; the server enforces 1–1,500 chars; a direct API call with no message returns a confusing server error</td>
+      <td>Client: <code>disabled={busy || !message.trim()}</code>; Server: <code>if (text.length &gt; 1500)</code> check exists but the client-side guard is weaker</td>
+      <td>Confusing 400 errors from direct API calls; minor UX issue in normal use</td>
+      <td><span class="badge low">Low</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-14</strong></td>
+      <td><code>components/MentorPortal.tsx</code></td>
+      <td>Single large component handling five distinct responsibilities (~226 lines)</td>
+      <td>File manages: data fetching, settings editing, request management (accept/decline/merge), removal/restore, and public card preview — all in one component</td>
+      <td>Adding features is risky; state entanglement makes bug isolation difficult; no independent testability</td>
+      <td><span class="badge low">Low</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-15</strong></td>
+      <td><code>lib/matching.ts</code><br /><code>RELATED_FIELDS</code></td>
+      <td>Related-field pairs are hardcoded in application logic, not configuration</td>
+      <td><code>const RELATED_FIELDS: [string, string][] = [...]</code> — 12 hardcoded pairs; requires a code deploy to update</td>
+      <td>Non-developer admins cannot curate the field taxonomy; adding new fields requires a deploy</td>
+      <td><span class="badge low">Low</span></td>
+    </tr>
+    <tr>
+      <td><strong>F-16</strong></td>
+      <td><code>lib/llm.ts</code><br /><code>.env.example</code></td>
+      <td>Default AI model is the most expensive tier for a low-stakes task; <code>output_config: { effort: "low" }</code> is not a documented Anthropic SDK parameter</td>
+      <td><code>const MODEL = process.env.MENTORMATCH_MODEL || "claude-opus-5-5"</code>; SDK property <code>output_config</code> not present in standard Anthropic TypeScript SDK types</td>
+      <td>API calls cost ~20× more than necessary; unknown SDK property may be silently ignored, negating its intended cost-reduction effect</td>
+      <td><span class="badge low">Low</span></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2><span class="section-id">E</span> Detailed Recommendations</h2>
+
+
+<div class="finding f-crit">
+  <div class="finding-title"><span class="badge crit">Critical — F-01</span> Fix the write-concurrency race in <code>lib/store.ts</code></div>
+  <p>
+    <strong>What:</strong> <code>mutate(fn)</code> loads the DB, runs the mutation, and saves — but nothing prevents two simultaneous HTTP requests from both loading before either saves.
+    <br /><strong>Where:</strong> <code>lib/store.ts:mutate()</code>, called by every state-changing route handler.
+    <br /><strong>Why it's a problem:</strong> Next.js handles concurrent requests in the same process. Two students hitting "Send request" simultaneously can both see the same available capacity, both increment <code>requests_this_month</code>, and both save — leaving the mentor double-booked.
+    <br /><strong>Fix:</strong> Wrap all calls to <code>mutate()</code> with an async mutex. The <code>async-mutex</code> npm package is zero-dependency and battle-tested.
+  </p>
+<pre>// lib/store.ts
+import { Mutex } from "async-mutex";
+
+const _lock = new Mutex();
+
+export function mutate&lt;T&gt;(fn: (db: Db) =&gt; T): Promise&lt;T&gt; {
+  return _lock.runExclusive(() =&gt; {
+    const db = loadDb();
+    const out = fn(db);
+    saveDb(db);
+    return out;
+  });
+}</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — one file, one new dependency, change signature from sync to async (callers already use <code>await mutate(...)</code> or are route handlers that can be made async).</p>
+</div>
+
+
+<div class="finding f-high">
+  <div class="finding-title"><span class="badge high">High — F-02</span> Guard mentor write routes with a shared secret header</div>
+  <p>
+    <strong>What:</strong> PATCH, DELETE, and POST actions on <code>/api/mentor/[id]/*</code> require no proof of identity. Any client can modify any mentor.
+    <br /><strong>Why:</strong> For a demo, full OAuth is overkill. A shared secret stored in the browser session at "claim" time gives meaningful protection with minimal complexity.
+    <br /><strong>Fix:</strong> When a user "claims" a mentor in <code>app/mentor/page.tsx</code>, generate a random token, store it in <code>sessionStorage</code>, and send it as an <code>X-Demo-Token</code> header. The server stores the token alongside the mentor ID in the DB and validates it on write routes.
+  </p>
+<pre>// lib/client.ts — on "claim"
+export function claimMentor(id: string) {
+  const token = crypto.randomUUID();
+  sessionStorage.setItem("mm_mentor", id);
+  sessionStorage.setItem("mm_token", token);
+  return token;
+}
+
+// api() should inject the token automatically:
+const token = sessionStorage.getItem("mm_token");
+const headers = { "Content-Type": "application/json" };
+if (token) headers["X-Demo-Token"] = token;
+
+// lib/api.ts — server-side guard helper
+export function requireToken(req: Request, expectedToken: string | null): boolean {
+  return req.headers.get("X-Demo-Token") === expectedToken;
+}</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-med">Medium</span> — requires storing token in DB on claim, and reading it in each write-route handler.</p>
+</div>
+
+
+<div class="finding f-high">
+  <div class="finding-title"><span class="badge high">High — F-03</span> Protect <code>/api/seed</code> from anonymous use</div>
+  <p>
+    <strong>What:</strong> One HTTP POST with no body wipes the entire database.
+    <br /><strong>Fix (Option A — simplest):</strong> Gate behind an environment variable secret.
+  </p>
+<pre>// app/api/seed/route.ts
+export async function POST(req: Request) {
+  const secret = process.env.SEED_SECRET;
+  if (!secret || req.headers.get("x-seed-secret") !== secret)
+    return fail("Forbidden.", 403);
+  return guard(() =&gt; { resetDb(); return ok({ reset: true }); });
+}</pre>
+  <p><strong>Fix (Option B — safer):</strong> Disable the route entirely in production via an env check: <code>if (process.env.NODE_ENV === "production") return fail("Not available.", 404);</code></p>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — 3-line change.</p>
+</div>
+
+
+<div class="finding f-high">
+  <div class="finding-title"><span class="badge high">High — F-04</span> Add rate limiting to AI routes</div>
+  <p>
+    <strong>What:</strong> <code>/api/explain</code> and <code>/api/playbook</code> make live Anthropic calls with no per-IP throttle.
+    <br /><strong>Fix:</strong> A simple in-process token-bucket keyed by client IP is sufficient for a single-process demo. For a deployed app, use Next.js middleware or a Vercel rate-limit edge function.
+  </p>
+<pre>// lib/rateLimit.ts — simple in-process bucket
+const buckets = new Map&lt;string, { count: number; resetAt: number }&gt;();
+const WINDOW_MS = 60_000;
+const MAX_CALLS = 5;
+
+export function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const b = buckets.get(ip);
+  if (!b || now &gt; b.resetAt) {
+    buckets.set(ip, { count: 1, resetAt: now + WINDOW_MS });
+    return true;
+  }
+  if (b.count &gt;= MAX_CALLS) return false;
+  b.count++;
+  return true;
+}
+
+// In /api/explain/route.ts and /api/playbook/route.ts:
+const ip = req.headers.get("x-forwarded-for") ?? "unknown";
+if (!checkRateLimit(ip)) return fail("Too many requests.", 429);</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — one new helper file, two route changes.</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-06</span> Auto-reset <code>requests_this_month</code> at month boundaries</div>
+  <p>
+    <strong>What:</strong> The capacity counter never resets, causing mentors to become permanently full.
+    <br /><strong>Fix:</strong> Store a <code>month_key</code> string on each mentor (e.g., <code>"2025-07"</code>). On <code>loadDb()</code>, compare against the current month; if different, reset the counter and update the key.
+  </p>
+<pre>// In lib/types.ts — add to Mentor:
+month_key?: string; // "YYYY-MM"; absent = needs reset
+
+// In lib/store.ts:
+export function loadDb(): Db {
+  const db = /* ...existing load logic... */;
+  const thisMonth = new Date().toISOString().slice(0, 7);
+  for (const m of db.mentors) {
+    if (m.month_key !== thisMonth) {
+      m.requests_this_month = 0;
+      m.month_key = thisMonth;
+    }
+  }
+  saveDb(db); // persist the reset
+  return db;
+}</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — 10 lines, one type change (optional field, backward-compatible).</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-08</span> Strengthen AI output validation in <code>/api/explain</code></div>
+  <p>
+    <strong>What:</strong> Any string between 11 and 399 characters with no newline passes as a valid explanation.
+    <br /><strong>Fix:</strong> Verify the explanation references at least one matched-factor label (already available in the response), reject strings containing URLs, HTML tags, or common injection markers.
+  </p>
+<pre>// app/api/explain/route.ts — replace the `good` check:
+const factorLabels = result.matched.map((c) =&gt; c.detail.toLowerCase());
+const mentionsFactor = factorLabels.some((l) =&gt;
+  text.toLowerCase().includes(l.split(" ")[0])   // at least one anchor word
+);
+const hasNoHtml = !(/&lt;[a-z]/i.test(text));
+const hasNoUrl  = !/(https?:|www\.)/i.test(text);
+const good = text.length &gt; 10 &amp;&amp; text.length &lt; 400
+  &amp;&amp; !text.includes("\n") &amp;&amp; hasNoHtml &amp;&amp; hasNoUrl &amp;&amp; mentionsFactor;</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — 5-line change in one route file.</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-09</span> Add a module-level in-memory cache to <code>lib/store.ts</code></div>
+  <p>
+    <strong>What:</strong> Every request re-reads the entire JSON file from disk, blocking the event loop.
+    <br /><strong>Fix:</strong> Keep the parsed <code>Db</code> in a module-level variable; invalidate it on every write.
+  </p>
+<pre>// lib/store.ts
+let _cache: Db | null = null;
+
+export function loadDb(): Db {
+  if (_cache) return _cache;
+  try {
+    _cache = JSON.parse(fs.readFileSync(file(), "utf8")) as Db;
+  } catch {
+    _cache = freshDb();
+    saveDb(_cache);
+  }
+  return _cache;
+}
+
+export function saveDb(db: Db) {
+  _cache = db;          // update cache before disk write
+  fs.mkdirSync(path.dirname(file()), { recursive: true });
+  const tmp = `${file()}.tmp`;
+  fs.writeFileSync(tmp, JSON.stringify(db, null, 2));
+  fs.renameSync(tmp, file());
+}
+
+export function resetDb() { _cache = null; saveDb(freshDb()); }</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — 8-line change in one file. Note: this cache is process-local; in a multi-process deployment (PM2 cluster, multiple Vercel instances) the cache would be stale. For single-process demo use this is correct and safe.</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-11</span> Add structured logging to <code>lib/api.ts</code> and <code>lib/llm.ts</code></div>
+  <p>
+    <strong>What:</strong> All errors are logged as bare <code>console.error(e)</code> with no context.
+    <br /><strong>Fix:</strong> A minimal structured logger (no dependency required) makes log aggregation possible without adding complexity.
+  </p>
+<pre>// lib/log.ts — tiny structured logger
+type Level = "info" | "warn" | "error";
+export function log(level: Level, msg: string, extra?: Record&lt;string, unknown&gt;) {
+  const entry = { ts: new Date().toISOString(), level, msg, ...extra };
+  (level === "error" ? console.error : console.warn)(JSON.stringify(entry));
+}
+
+// lib/api.ts — guard() updated:
+catch (e) {
+  log("error", "Unhandled route error", { error: (e as Error).message });
+  return fail("Something went wrong on our side.", 500);
+}
+
+// lib/llm.ts — askJson() updated:
+log("warn", "AI call failed; using template.", {
+  model: MODEL,
+  error: (e as Error).message,
+});</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — one new file, two changed lines.</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-12</span> Expand test coverage to <code>parseProfile</code> and <code>store.ts</code></div>
+  <p>
+    <strong>What:</strong> <code>lib/profile.ts</code> and <code>lib/store.ts</code> have no tests. <code>parseProfile</code> is the only input validation for every student-facing API.
+    <br /><strong>Fix:</strong> Add a <code>tests/store.test.ts</code> that uses a temp directory via <code>os.tmpdir()</code>, and a <code>tests/profile.test.ts</code> that covers boundary inputs.
+  </p>
+<pre>// tests/profile.test.ts (excerpt)
+import { parseProfile } from "@/lib/profile";
+
+it("rejects missing field", () =&gt; expect(parseProfile({})).toBe("Please choose a field of interest."));
+it("trims and caps target_role to 80 chars", () =&gt; {
+  const p = parseProfile({ field: "Software Engineering", stage: "exploring",
+    help_wanted: ["resume_review"], target_role: "x".repeat(100) });
+  expect(typeof p !== "string" &amp;&amp; p.target_role.length).toBe(80);
+});
+it("deduplicates help_wanted", () =&gt; {
+  const p = parseProfile({ field: "f", stage: "exploring",
+    help_wanted: ["resume_review", "resume_review"] });
+  expect(typeof p !== "string" &amp;&amp; p.help_wanted).toHaveLength(1);
+});</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-med">Medium</span> — new test files, ~30–40 tests covering validation edge cases and store I/O.</p>
+</div>
+
+
+<div class="finding f-medium">
+  <div class="finding-title"><span class="badge medium">Medium — F-07</span> Validate the <code>ids</code> array in <code>/api/mentor/[id]/merge</code></div>
+  <p>
+    <strong>What:</strong> The merge route casts <code>body.ids</code> directly to <code>string[]</code> with no length or type check.
+    <br /><strong>Fix:</strong> Add a 2-line guard before passing to <code>mergeRequests()</code>.
+  </p>
+<pre>const raw = (await body(req)).ids;
+if (!Array.isArray(raw) || raw.length &gt; 20 || raw.some((x) =&gt; typeof x !== "string"))
+  return fail("Invalid ids.", 400);
+const ids = raw as string[];</pre>
+  <p><strong>Effort:</strong> <span class="badge effort-low">Low</span> — 3 lines in one route file.</p>
+</div>
+
+
+<h2><span class="section-id">F</span> Alternative Architecture Analysis</h2>
+
+<p>Three plausible architectural alternatives are evaluated below. All are assessed against the application's actual scope and the identified weaknesses.</p>
+
+<h3>Option 1 — Replace the JSON file store with SQLite (via <code>better-sqlite3</code>)</h3>
+<div class="box">
+  <p><strong>What it looks like:</strong> Replace <code>lib/store.ts</code> with a SQLite database. Two tables: <code>mentors</code> and <code>requests</code>. All current domain logic in <code>lib/requests.ts</code> and <code>lib/matching.ts</code> remains unchanged — only the persistence layer changes.</p>
+  <p><strong>Problems it solves:</strong></p>
+  <ul>
+    <li><strong>F-01 (race condition)</strong> — SQLite's write serialisation guarantees atomic transactions without a mutex.</li>
+    <li><strong>F-09 (full DB re-read)</strong> — Queries load only what is needed; no full-file parse.</li>
+    <li><strong>F-10 (O(n) scans)</strong> — Indexed lookups for <code>WHERE id = ?</code> and <code>WHERE mentor_id = ?</code>.</li>
+    <li><strong>F-06 (month reset)</strong> — A column default and a simple UPDATE query.</li>
+    <li><strong>F-05 (no schema validation)</strong> — SQL schema enforces types and constraints.</li>
+  </ul>
+  <p><strong>Advantages:</strong> Solves 5 confirmed weaknesses at once; <code>better-sqlite3</code> is synchronous and zero-config (one file, no server); the domain layer is completely unaffected.</p>
+  <p><strong>Disadvantages:</strong> Migration effort (~1–2 days); <code>better-sqlite3</code> requires a native build (node-gyp); not compatible with serverless/edge runtimes without <code>@libsql/client</code> or similar. The current JSON approach works fine for a single-server demo.</p>
+  <p><strong>Verdict:</strong> <strong>Recommended if the application moves toward production.</strong> Not necessary for the current prototype — the mutex fix (F-01) and in-memory cache (F-09) are cheaper and lower-risk short-term improvements that achieve the same safety within the demo's single-process constraint.</p>
+</div>
+
+<h3>Option 2 — Add a proper authentication layer (e.g., NextAuth.js)</h3>
+<div class="box">
+  <p><strong>What it looks like:</strong> Replace the "View as mentor" selector with real sign-in. NextAuth.js supports GitHub/Google OAuth in ~50 lines of configuration. Session tokens replace the <code>sessionStorage</code>-based demo approach. Mentor write routes check <code>session.user.id</code> against <code>mentor.owner_user</code>.</p>
+  <p><strong>Problems it solves:</strong></p>
+  <ul>
+    <li><strong>F-02 (no auth on write routes)</strong> — Fully solved.</li>
+    <li><strong>F-03 (unprotected seed)</strong> — Seed can be gated to admin users.</li>
+  </ul>
+  <p><strong>Advantages:</strong> Production-grade; enables real mentor onboarding.</p>
+  <p><strong>Disadvantages:</strong> Requires real user accounts, a callback URL, an OAuth app registration, and database changes to store user-mentor relationships. This is a significant scope increase for what is explicitly a hackathon prototype with 50 fictional mentors.</p>
+  <p><strong>Verdict:</strong> <strong>Not justified for the current prototype.</strong> The shared-secret header approach (Recommendation F-02) provides adequate protection at a fraction of the implementation cost. OAuth should be the first step when real mentors are onboarded.</p>
+</div>
+
+<h3>Option 3 — Microservices / separate matching service</h3>
+<div class="box">
+  <p><strong>What it looks like:</strong> Separate the matching engine into its own Node.js service or serverless function, with the Next.js app calling it over HTTP/gRPC.</p>
+  <p><strong>Problems it solves:</strong> Theoretical independent scaling of the matching computation.</p>
+  <p><strong>Advantages:</strong> Matching could be deployed independently; different teams could own different services.</p>
+  <p><strong>Disadvantages:</strong> The matching algorithm is pure synchronous TypeScript that runs in under 1ms for 50 mentors. A network hop would add 10–50ms with zero computational benefit. This would introduce distributed-system complexity (network partitions, service discovery, contract testing) for a function that currently has zero operational cost.</p>
+  <p><strong>Verdict:</strong> <strong>Not recommended at any scale this application is likely to reach.</strong> The current monolith is the correct architecture. The matching engine's clean separation into <code>lib/matching.ts</code> already provides the logical isolation that microservices would seek to enforce at a network boundary.</p>
+</div>
+
+
+<h2><span class="section-id">G</span> Prioritized Action Plan</h2>
+
+<h3>Priority 1 — Immediate fixes (before any public exposure)</h3>
+<table>
+  <thead><tr><th>#</th><th>Finding</th><th>Action</th><th>Effort</th><th>Dependency</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>1.1</td>
+      <td><span class="badge crit">Critical</span> F-01</td>
+      <td>Add async mutex to <code>lib/store.ts:mutate()</code> (install <code>async-mutex</code>; change return type to <code>Promise&lt;T&gt;</code>)</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1.2</td>
+      <td><span class="badge high">High</span> F-03</td>
+      <td>Gate <code>/api/seed</code> behind an env-var secret header or disable in production</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1.3</td>
+      <td><span class="badge high">High</span> F-04</td>
+      <td>Add in-process token-bucket rate limiter to <code>/api/explain</code> and <code>/api/playbook</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1.4</td>
+      <td><span class="badge high">High</span> F-02</td>
+      <td>Add shared-secret header validation to all mentor write routes (PATCH, DELETE, merge, restore, request actions)</td>
+      <td><span class="badge effort-med">Medium</span></td>
+      <td>None; can be done incrementally per route</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Priority 2 — Important improvements (before growing the user base or mentor pool)</h3>
+<table>
+  <thead><tr><th>#</th><th>Finding</th><th>Action</th><th>Effort</th><th>Dependency</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>2.1</td>
+      <td><span class="badge medium">Medium</span> F-06</td>
+      <td>Add <code>month_key</code> field to <code>Mentor</code>; auto-reset <code>requests_this_month</code> in <code>loadDb()</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None (backward-compatible)</td>
+    </tr>
+    <tr>
+      <td>2.2</td>
+      <td><span class="badge medium">Medium</span> F-09</td>
+      <td>Add module-level in-memory cache to <code>lib/store.ts</code>; invalidate on every <code>saveDb()</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>1.1 (mutex) should be in place first</td>
+    </tr>
+    <tr>
+      <td>2.3</td>
+      <td><span class="badge medium">Medium</span> F-07</td>
+      <td>Add <code>Array.isArray()</code> + length cap (≤20) + element type check in <code>/api/mentor/[id]/merge</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>2.4</td>
+      <td><span class="badge medium">Medium</span> F-08</td>
+      <td>Strengthen AI explanation validation: check that output references a matched factor, reject HTML/URLs</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>2.5</td>
+      <td><span class="badge medium">Medium</span> F-11</td>
+      <td>Replace bare <code>console.error/warn</code> with a minimal structured logger in <code>lib/api.ts</code> and <code>lib/llm.ts</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>2.6</td>
+      <td><span class="badge medium">Medium</span> F-05</td>
+      <td>Validate mentor records at <code>loadDb()</code> time using <code>validateMentor()</code>; skip/log invalid records</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>2.2 (cache) to avoid double-validation per request</td>
+    </tr>
+    <tr>
+      <td>2.7</td>
+      <td><span class="badge medium">Medium</span> F-12</td>
+      <td>Write tests for <code>lib/profile.ts</code> (boundary inputs) and <code>lib/store.ts</code> (using a temp-dir fixture)</td>
+      <td><span class="badge effort-med">Medium</span></td>
+      <td>None; 1.1 changes <code>mutate()</code> to async, tests should be written after</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Priority 3 — Optional enhancements (quality-of-life and long-term maintainability)</h3>
+<table>
+  <thead><tr><th>#</th><th>Finding</th><th>Action</th><th>Effort</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>3.1</td>
+      <td><span class="badge low">Low</span> F-13</td>
+      <td>Export a <code>validateMessage()</code> helper from <code>lib/requests.ts</code>; use it in <code>RequestForm.tsx</code> to make client/server validation consistent</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>Minor UX improvement</td>
+    </tr>
+    <tr>
+      <td>3.2</td>
+      <td><span class="badge low">Low</span> F-16</td>
+      <td>Change default model in <code>lib/llm.ts</code> to <code>claude-haiku-3-5</code> (or equivalent); verify <code>output_config</code> is a valid SDK parameter</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>Cost reduction; verify against installed SDK version's TypeScript types</td>
+    </tr>
+    <tr>
+      <td>3.3</td>
+      <td><span class="badge low">Low</span> F-10</td>
+      <td>Index <code>db.requests</code> as a <code>Map&lt;string, MeetingRequest&gt;</code> at load time to enable O(1) lookup in <code>lib/requests.ts</code></td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>Not needed until requests exceed ~1,000; design for it before then</td>
+    </tr>
+    <tr>
+      <td>3.4</td>
+      <td><span class="badge low">Low</span> F-14</td>
+      <td>Extract <code>CapacityPanel</code>, <code>SettingsPanel</code>, <code>RequestCard</code>, and <code>ProfilePreview</code> from <code>MentorPortal.tsx</code></td>
+      <td><span class="badge effort-med">Medium</span></td>
+      <td>Enables independent testing of each panel; reduces merge conflicts</td>
+    </tr>
+    <tr>
+      <td>3.5</td>
+      <td><span class="badge low">Low</span> F-15</td>
+      <td>Move <code>RELATED_FIELDS</code> from <code>lib/matching.ts</code> to <code>data/related-fields.json</code> and load it at startup</td>
+      <td><span class="badge effort-low">Low</span></td>
+      <td>Enables non-developer configuration of the field taxonomy</td>
+    </tr>
+  </tbody>
+</table>
+
+
+<h2><span class="section-id">H</span> Overall Assessment</h2>
+
+<h3>Architectural Strengths</h3>
+<div class="strength"><strong>Excellent domain/infrastructure separation.</strong> Every piece of business logic lives in <code>lib/</code> as pure or near-pure functions. Route handlers are thin, testable adapters. This is the single most valuable architectural decision in the codebase — it makes the matching algorithm independently testable and the fairness audit structurally enforceable.</div>
+<div class="strength"><strong>AI is never on the critical path.</strong> Every AI call site has a complete, immediately-rendered template fallback. The application delivers its full value proposition with the API key removed. This is a correct and mature design for an AI-enhanced application.</div>
+<div class="strength"><strong>Fairness is architecturally enforced, not just documented.</strong> The proxy-based test in <code>matching.test.ts</code> proves the matcher cannot read <code>display_name</code> or <code>name</code>, even if a bug accidentally introduces such a read. This is a sophisticated and reusable testing pattern.</div>
+<div class="strength"><strong>Input validation is centralised and exhaustive.</strong> <code>lib/profile.ts</code> and <code>lib/mentorSettings.ts</code> handle all validation. No route handler re-implements validation logic. The allowlist pattern in <code>EDITABLE</code> prevents accidental mass-assignment vulnerabilities.</div>
+<div class="strength"><strong>Atomic file writes prevent partial-write corruption.</strong> The tmp-file rename in <code>saveDb()</code> is the correct OS-level primitive for this. It prevents a crash mid-write from leaving a half-written JSON file.</div>
+<div class="strength"><strong>No unnecessary dependencies.</strong> The entire application runs on 4 runtime dependencies (Next.js, React, React-DOM, Anthropic SDK). The icon system is self-contained SVG. No icon library, no state manager, no form library.</div>
+
+<h3>Biggest Weaknesses (confirmed)</h3>
+<ol>
+  <li><strong>The write-concurrency race condition (F-01)</strong> is the most serious confirmed correctness bug. Under any realistic concurrent load it will produce incorrect capacity counts and allow mentor over-booking.</li>
+  <li><strong>Unauthenticated write surfaces (F-02, F-03)</strong> make the entire data store modifiable by any anonymous HTTP client. This is an accepted trade-off for a prototype but must be addressed before any real use.</li>
+  <li><strong>No rate limiting on AI routes (F-04)</strong> creates an unbounded cost exposure. A single automated script could exhaust the API quota in minutes.</li>
+</ol>
+
+<h3>Top Three Improvements to Implement First</h3>
+<ol>
+  <li><strong>Async mutex in <code>lib/store.ts</code></strong> — one file change, one small dependency, fixes the most serious correctness issue.</li>
+  <li><strong>Secret-header guard on <code>/api/seed</code></strong> — 3 lines, removes the trivial data-destruction vector.</li>
+  <li><strong>In-process rate limiter on AI routes</strong> — one new helper file, two route changes, removes unbounded cost exposure.</li>
+</ol>
+
+<h3>Is the Current Architecture Sufficient?</h3>
+<p>
+  <strong>For a hackathon prototype with 50 fictional mentors: yes.</strong> The layered structure, clean domain separation, and fairness audit are all above the standard for a prototype. The codebase is well-organized and readable.
+</p>
+<p>
+  <strong>For a public deployment with real mentors and real students: not yet.</strong> The four Priority 1 fixes are non-negotiable before exposure to real users. The Priority 2 fixes (month reset, cache, structured logging, extended tests) are necessary for operational stability. The architecture itself does not need to change — only the gaps in its guards and observability need to be filled.
+</p>
+<p>
+  <strong>If the mentor pool grows beyond ~500 mentors or requests beyond ~5,000:</strong> replace the JSON file store with SQLite. This single change resolves the concurrency, caching, scan-complexity, and schema-validation findings simultaneously, while leaving all domain logic untouched.
+</p>
+
+</div>
+<footer>Made with IBM Bob</footer>
+</body>
+</html>
