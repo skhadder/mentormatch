@@ -272,7 +272,7 @@
     "role": "Software Engineer",
     "company": "Microsoft",
     "industry": "Technology",
-    "years_experience": 2,
+    "years_experience": 5,
     "major": "Computer Science",
     "switched_from_field": null,
     "path_tags": [
@@ -310,7 +310,7 @@
       "legal or visa advice",
       "asking for a referral in a first chat"
     ],
-    "bio_for_explanations": "2 years in software engineering; interned for two summers and converted to full time. Currently a Software Engineer at Microsoft.",
+    "bio_for_explanations": "5 years in software engineering; interned for two summers and converted to full time. Currently a Software Engineer at Microsoft.",
     "can_speak_to": [
       "switching into tech",
       "learning on the job",
@@ -430,7 +430,7 @@
     "role": "Backend Engineer",
     "company": "Shopify",
     "industry": "Technology",
-    "years_experience": 22,
+    "years_experience": 8,
     "major": "Physics",
     "switched_from_field": null,
     "path_tags": [
@@ -464,7 +464,7 @@
     "not_open_to": [
       "personal introductions to executives"
     ],
-    "bio_for_explanations": "22 years in software engineering; moved from a physics degree into backend engineering. Currently a Backend Engineer at Shopify.",
+    "bio_for_explanations": "8 years in software engineering; moved from a physics degree into backend engineering. Currently a Backend Engineer at Shopify.",
     "can_speak_to": [
       "code review habits",
       "learning on the job",
@@ -531,7 +531,7 @@
     "role": "Product Manager",
     "company": "Pinecrest Software",
     "industry": "Technology",
-    "years_experience": 22,
+    "years_experience": 9,
     "major": "Business",
     "switched_from_field": null,
     "path_tags": [
@@ -562,7 +562,7 @@
       "reviewing full code projects",
       "legal or visa advice"
     ],
-    "bio_for_explanations": "22 years in product management; started in business operations and moved into product. Currently a Product Manager at Pinecrest Software.",
+    "bio_for_explanations": "9 years in product management; started in business operations and moved into product. Currently a Product Manager at Pinecrest Software.",
     "can_speak_to": [
       "metrics that matter",
       "prioritization",
@@ -579,7 +579,7 @@
     "role": "Associate Product Manager",
     "company": "Airbnb",
     "industry": "Technology",
-    "years_experience": 10,
+    "years_experience": 4,
     "major": "Computer Science",
     "switched_from_field": "Software Engineering",
     "path_tags": [
@@ -617,7 +617,7 @@
       "asking for a referral in a first chat",
       "reviewing full code projects"
     ],
-    "bio_for_explanations": "10 years in product management; engineer who moved into product management. Currently an Associate Product Manager at Airbnb.",
+    "bio_for_explanations": "4 years in product management; engineer who moved into product management. Currently an Associate Product Manager at Airbnb.",
     "can_speak_to": [
       "writing a product spec",
       "product case interviews",
@@ -741,7 +741,7 @@
     "role": "Associate Product Manager",
     "company": "Pinecrest Software",
     "industry": "Technology",
-    "years_experience": 15,
+    "years_experience": 4,
     "major": "Design",
     "switched_from_field": "Design",
     "path_tags": [
@@ -776,7 +776,7 @@
     "not_open_to": [
       "asking for a referral in a first chat"
     ],
-    "bio_for_explanations": "15 years in product management; designer who shifted into product management. Currently an Associate Product Manager at Pinecrest Software.",
+    "bio_for_explanations": "4 years in product management; designer who shifted into product management. Currently an Associate Product Manager at Pinecrest Software.",
     "can_speak_to": [
       "metrics that matter",
       "working with engineers",
@@ -1166,7 +1166,7 @@
     "role": "Business Intelligence Analyst",
     "company": "Harborview Analytics",
     "industry": "Technology",
-    "years_experience": 12,
+    "years_experience": 7,
     "major": "Mathematics",
     "switched_from_field": null,
     "path_tags": [
@@ -1204,7 +1204,7 @@
       "reviewing full code projects",
       "salary negotiation scripts"
     ],
-    "bio_for_explanations": "12 years in data science; mathematics graduate who joined an analytics team. Currently a Business Intelligence Analyst at Harborview Analytics.",
+    "bio_for_explanations": "7 years in data science; mathematics graduate who joined an analytics team. Currently a Business Intelligence Analyst at Harborview Analytics.",
     "can_speak_to": [
       "building a data portfolio",
       "machine learning basics",
@@ -1275,7 +1275,7 @@
     "role": "Product Designer",
     "company": "Bluebird Interactive",
     "industry": "Technology",
-    "years_experience": 12,
+    "years_experience": 10,
     "major": "Art History",
     "switched_from_field": "Museum Work",
     "path_tags": [
@@ -1309,7 +1309,7 @@
     "not_open_to": [
       "asking for a referral in a first chat"
     ],
-    "bio_for_explanations": "12 years in ux design; left museum work and taught themself design. Currently a Product Designer at Bluebird Interactive.",
+    "bio_for_explanations": "10 years in ux design; left museum work and taught themself design. Currently a Product Designer at Bluebird Interactive.",
     "can_speak_to": [
       "building a portfolio",
       "design critiques",
@@ -1378,7 +1378,7 @@
     "role": "UX Designer",
     "company": "Sparrow Studio",
     "industry": "Technology",
-    "years_experience": 22,
+    "years_experience": 8,
     "major": "Graphic Design",
     "switched_from_field": "Graphic Design",
     "path_tags": [
@@ -1417,7 +1417,7 @@
       "legal or visa advice",
       "unpaid work or free projects"
     ],
-    "bio_for_explanations": "22 years in ux design; graphic designer who moved into product design. Currently an UX Designer at Sparrow Studio.",
+    "bio_for_explanations": "8 years in ux design; graphic designer who moved into product design. Currently an UX Designer at Sparrow Studio.",
     "can_speak_to": [
       "self-taught paths",
       "design interviews",
@@ -1434,7 +1434,7 @@
     "role": "Senior UX Designer",
     "company": "Sparrow Studio",
     "industry": "Technology",
-    "years_experience": 4,
+    "years_experience": 7,
     "major": "Psychology",
     "switched_from_field": null,
     "path_tags": [
@@ -1468,7 +1468,7 @@
     "not_open_to": [
       "unpaid work or free projects"
     ],
-    "bio_for_explanations": "4 years in ux design; studied psychology and joined a design team. Currently a Senior UX Designer at Sparrow Studio.",
+    "bio_for_explanations": "7 years in ux design; studied psychology and joined a design team. Currently a Senior UX Designer at Sparrow Studio.",
     "can_speak_to": [
       "self-taught paths",
       "working with engineers and PMs",
@@ -1589,7 +1589,7 @@
     "role": "Research Operations Lead",
     "company": "Meta",
     "industry": "Technology",
-    "years_experience": 2,
+    "years_experience": 5,
     "major": "Psychology",
     "switched_from_field": null,
     "path_tags": [
@@ -1624,7 +1624,7 @@
       "job placement guarantees",
       "asking for a referral in a first chat"
     ],
-    "bio_for_explanations": "2 years in ux research; studied psychology and became a researcher. Currently a Research Operations Lead at Meta.",
+    "bio_for_explanations": "5 years in ux research; studied psychology and became a researcher. Currently a Research Operations Lead at Meta.",
     "can_speak_to": [
       "influencing product decisions",
       "research portfolios",
@@ -1641,7 +1641,7 @@
     "role": "Research Manager",
     "company": "Microsoft",
     "industry": "Technology",
-    "years_experience": 3,
+    "years_experience": 8,
     "major": "Anthropology",
     "switched_from_field": "Academia",
     "path_tags": [
@@ -1673,7 +1673,7 @@
     "not_open_to": [
       "personal introductions to executives"
     ],
-    "bio_for_explanations": "3 years in ux research; left anthropology research for tech. Currently a Research Manager at Microsoft.",
+    "bio_for_explanations": "8 years in ux research; left anthropology research for tech. Currently a Research Manager at Microsoft.",
     "can_speak_to": [
       "running interviews and surveys",
       "research portfolios",
@@ -1690,7 +1690,7 @@
     "role": "Research Manager",
     "company": "Fieldnote Co",
     "industry": "Technology",
-    "years_experience": 4,
+    "years_experience": 9,
     "major": "Nursing",
     "switched_from_field": "Nursing",
     "path_tags": [
@@ -1728,7 +1728,7 @@
       "unpaid work or free projects",
       "legal or visa advice"
     ],
-    "bio_for_explanations": "4 years in ux research; moved from nursing into UX research. Currently a Research Manager at Fieldnote Co.",
+    "bio_for_explanations": "9 years in ux research; moved from nursing into UX research. Currently a Research Manager at Fieldnote Co.",
     "can_speak_to": [
       "running interviews and surveys",
       "influencing product decisions",
@@ -1745,7 +1745,7 @@
     "role": "Research Operations Lead",
     "company": "Microsoft",
     "industry": "Technology",
-    "years_experience": 4,
+    "years_experience": 5,
     "major": "Sociology",
     "switched_from_field": "Market Research",
     "path_tags": [
@@ -1782,7 +1782,7 @@
       "legal or visa advice",
       "unpaid work or free projects"
     ],
-    "bio_for_explanations": "4 years in ux research; started in market research and moved to UX. Currently a Research Operations Lead at Microsoft.",
+    "bio_for_explanations": "5 years in ux research; started in market research and moved to UX. Currently a Research Operations Lead at Microsoft.",
     "can_speak_to": [
       "influencing product decisions",
       "research methods",
@@ -1799,7 +1799,7 @@
     "role": "Marketing Associate",
     "company": "Crestline Brands",
     "industry": "Media & Consumer",
-    "years_experience": 18,
+    "years_experience": 5,
     "major": "English",
     "switched_from_field": "Journalism",
     "path_tags": [
@@ -1839,7 +1839,7 @@
       "salary negotiation scripts",
       "unpaid work or free projects"
     ],
-    "bio_for_explanations": "18 years in marketing; moved from writing for newspapers to content strategy. Currently a Marketing Associate at Crestline Brands.",
+    "bio_for_explanations": "5 years in marketing; moved from writing for newspapers to content strategy. Currently a Marketing Associate at Crestline Brands.",
     "can_speak_to": [
       "brand vs growth roles",
       "building a marketing portfolio",
@@ -1956,7 +1956,7 @@
     "role": "Social Media Manager",
     "company": "Nike",
     "industry": "Media & Consumer",
-    "years_experience": 18,
+    "years_experience": 9,
     "major": "Event Management",
     "switched_from_field": "Event Planning",
     "path_tags": [
@@ -1990,7 +1990,7 @@
     "not_open_to": [
       "mentoring over text at odd hours"
     ],
-    "bio_for_explanations": "18 years in marketing; moved from event planning into growth marketing. Currently a Social Media Manager at Nike.",
+    "bio_for_explanations": "9 years in marketing; moved from event planning into growth marketing. Currently a Social Media Manager at Nike.",
     "can_speak_to": [
       "freelance projects",
       "agency vs in-house",
@@ -2007,7 +2007,7 @@
     "role": "Marketing Associate",
     "company": "Sunrise Media",
     "industry": "Media & Consumer",
-    "years_experience": 22,
+    "years_experience": 4,
     "major": "Psychology",
     "switched_from_field": null,
     "path_tags": [
@@ -2041,7 +2041,7 @@
       "reviewing full code projects",
       "job placement guarantees"
     ],
-    "bio_for_explanations": "22 years in marketing; studied psychology and joined a marketing team. Currently a Marketing Associate at Sunrise Media.",
+    "bio_for_explanations": "4 years in marketing; studied psychology and joined a marketing team. Currently a Marketing Associate at Sunrise Media.",
     "can_speak_to": [
       "freelance projects",
       "standing out in applications",
@@ -2058,7 +2058,7 @@
     "role": "Social Media Manager",
     "company": "HubSpot",
     "industry": "Media & Consumer",
-    "years_experience": 18,
+    "years_experience": 10,
     "major": "Biology",
     "switched_from_field": "Nonprofit Work",
     "path_tags": [
@@ -2094,7 +2094,7 @@
     "not_open_to": [
       "salary negotiation scripts"
     ],
-    "bio_for_explanations": "18 years in marketing; moved from nonprofit work into marketing. Currently a Social Media Manager at HubSpot.",
+    "bio_for_explanations": "10 years in marketing; moved from nonprofit work into marketing. Currently a Social Media Manager at HubSpot.",
     "can_speak_to": [
       "freelance projects",
       "agency vs in-house",
@@ -2111,7 +2111,7 @@
     "role": "Investment Associate",
     "company": "Goldman Sachs",
     "industry": "Financial Services",
-    "years_experience": 8,
+    "years_experience": 5,
     "major": "Mathematics",
     "switched_from_field": null,
     "path_tags": [
@@ -2144,7 +2144,7 @@
       "job placement guarantees",
       "personal introductions to executives"
     ],
-    "bio_for_explanations": "8 years in finance; mathematics major who started in banking. Currently an Investment Associate at Goldman Sachs.",
+    "bio_for_explanations": "5 years in finance; mathematics major who started in banking. Currently an Investment Associate at Goldman Sachs.",
     "can_speak_to": [
       "finance interviews",
       "switching into finance",
@@ -2161,7 +2161,7 @@
     "role": "Risk Analyst",
     "company": "Goldman Sachs",
     "industry": "Financial Services",
-    "years_experience": 10,
+    "years_experience": 6,
     "major": "Education",
     "switched_from_field": "Teaching",
     "path_tags": [
@@ -2199,7 +2199,7 @@
       "personal introductions to executives",
       "reviewing full code projects"
     ],
-    "bio_for_explanations": "10 years in finance; former teacher who moved into finance. Currently a Risk Analyst at Goldman Sachs.",
+    "bio_for_explanations": "6 years in finance; former teacher who moved into finance. Currently a Risk Analyst at Goldman Sachs.",
     "can_speak_to": [
       "switching into finance",
       "modeling basics",
@@ -2216,7 +2216,7 @@
     "role": "Financial Analyst",
     "company": "Goldman Sachs",
     "industry": "Financial Services",
-    "years_experience": 10,
+    "years_experience": 8,
     "major": "Accounting",
     "switched_from_field": null,
     "path_tags": [
@@ -2254,7 +2254,7 @@
       "salary negotiation scripts",
       "job placement guarantees"
     ],
-    "bio_for_explanations": "10 years in finance; started in accounting and moved to analysis. Currently a Financial Analyst at Goldman Sachs.",
+    "bio_for_explanations": "8 years in finance; started in accounting and moved to analysis. Currently a Financial Analyst at Goldman Sachs.",
     "can_speak_to": [
       "modeling basics",
       "non-target school paths",
@@ -2271,7 +2271,7 @@
     "role": "Development Director",
     "company": "Common Ground",
     "industry": "Nonprofit",
-    "years_experience": 22,
+    "years_experience": 19,
     "major": "Social Work",
     "switched_from_field": null,
     "path_tags": [
@@ -2304,7 +2304,7 @@
     "not_open_to": [
       "job placement guarantees"
     ],
-    "bio_for_explanations": "22 years in nonprofit; studied social work and moved into program leadership. Currently a Development Director at Common Ground.",
+    "bio_for_explanations": "19 years in nonprofit; studied social work and moved into program leadership. Currently a Development Director at Common Ground.",
     "can_speak_to": [
       "mission-driven careers",
       "grant writing basics",
@@ -2321,7 +2321,7 @@
     "role": "Development Director",
     "company": "Open Doors Collective",
     "industry": "Nonprofit",
-    "years_experience": 3,
+    "years_experience": 9,
     "major": "Computer Science",
     "switched_from_field": "Software Engineering",
     "path_tags": [
@@ -2358,7 +2358,7 @@
     "not_open_to": [
       "reviewing full code projects"
     ],
-    "bio_for_explanations": "3 years in nonprofit; former software engineer who moved into nonprofit work. Currently a Development Director at Open Doors Collective.",
+    "bio_for_explanations": "9 years in nonprofit; former software engineer who moved into nonprofit work. Currently a Development Director at Open Doors Collective.",
     "can_speak_to": [
       "grant writing basics",
       "volunteering into a career",
@@ -2429,7 +2429,7 @@
     "role": "Health Policy Analyst",
     "company": "Mayo Clinic",
     "industry": "Healthcare",
-    "years_experience": 22,
+    "years_experience": 7,
     "major": "Public Health",
     "switched_from_field": null,
     "path_tags": [
@@ -2460,7 +2460,7 @@
     "not_open_to": [
       "job placement guarantees"
     ],
-    "bio_for_explanations": "22 years in healthcare; public health graduate who moved into policy. Currently a Health Policy Analyst at Mayo Clinic.",
+    "bio_for_explanations": "7 years in healthcare; public health graduate who moved into policy. Currently a Health Policy Analyst at Mayo Clinic.",
     "can_speak_to": [
       "clinical vs non-clinical roles",
       "healthcare career paths",
@@ -2584,7 +2584,7 @@
     "role": "Curriculum Designer",
     "company": "Coursera",
     "industry": "Education",
-    "years_experience": 18,
+    "years_experience": 9,
     "major": "English",
     "switched_from_field": null,
     "path_tags": [
@@ -2619,7 +2619,7 @@
       "unpaid work or free projects",
       "personal introductions to executives"
     ],
-    "bio_for_explanations": "18 years in education; started tutoring and moved into edtech. Currently a Curriculum Designer at Coursera.",
+    "bio_for_explanations": "9 years in education; started tutoring and moved into edtech. Currently a Curriculum Designer at Coursera.",
     "can_speak_to": [
       "edtech careers",
       "teaching to industry moves",

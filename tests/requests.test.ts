@@ -16,13 +16,15 @@ function topFor(db: Db, p: StudentProfile) {
   return top.mentor;
 }
 
+const NAME = "Sam Rivera";
+
 describe("meeting requests (criterion 5)", () => {
   it("send reserves, decline releases, and matching sees both immediately", () => {
     const db = fresh();
     const p = profile();
     const m = topFor(db, p);
     const before = m.requests_this_month;
-    const req = createRequest(db, p, m.id, "Hello, I'd love to learn from you.");
+    const req = createRequest(db, p, m.id, "Hello, I'd love to learn from you.", NAME);
     expect(req.status).toBe("pending");
     expect(db.mentors.find((x) => x.id === m.id)!.requests_this_month).toBe(before + 1);
     declineRequest(db, m.id, req.id);
@@ -36,21 +38,21 @@ describe("meeting requests (criterion 5)", () => {
     const m = topFor(db, p);
     const mm = db.mentors.find((x) => x.id === m.id)!;
     mm.requests_this_month = mm.monthly_limit - 1;
-    createRequest(db, p, m.id, "Hi");
+    createRequest(db, p, m.id, "Hi", NAME);
     expect(matchMentors(p, db.mentors).some((r) => r.mentor.id === m.id)).toBe(false);
-    expect(() => createRequest(db, p, m.id, "Hi again")).toThrow(RuleError);
+    expect(() => createRequest(db, p, m.id, "Hi again", NAME)).toThrow(RuleError);
   });
 
   it("rejects an empty message", () => {
     const db = fresh();
-    expect(() => createRequest(db, profile(), topFor(db, profile()).id, "   ")).toThrow(/message/i);
+    expect(() => createRequest(db, profile(), topFor(db, profile()).id, "   ", NAME)).toThrow(/message/i);
   });
 
   it("accept keeps the reservation", () => {
     const db = fresh();
     const m = topFor(db, profile());
     const before = m.requests_this_month;
-    const req = createRequest(db, profile(), m.id, "Hi");
+    const req = createRequest(db, profile(), m.id, "Hi", NAME);
     acceptRequest(db, m.id, req.id);
     expect(db.requests[0].status).toBe("accepted");
     expect(m.requests_this_month).toBe(before + 1);
@@ -59,7 +61,7 @@ describe("meeting requests (criterion 5)", () => {
   it("a mentor cannot answer another mentor's request", () => {
     const db = fresh();
     const m = topFor(db, profile());
-    const req = createRequest(db, profile(), m.id, "Hi");
+    const req = createRequest(db, profile(), m.id, "Hi", NAME);
     const other = db.mentors.find((x) => x.id !== m.id)!;
     expect(() => declineRequest(db, other.id, req.id)).toThrow(RuleError);
   });
@@ -71,8 +73,8 @@ describe("meeting requests (criterion 5)", () => {
     const mm = db.mentors.find((x) => x.id === m.id)!;
     mm.group_size_max = 6;
     const before = mm.requests_this_month;
-    const a = createRequest(db, g, m.id, "A");
-    const b = createRequest(db, g, m.id, "B");
+    const a = createRequest(db, g, m.id, "A", NAME);
+    const b = createRequest(db, g, m.id, "B", NAME);
     expect(mm.requests_this_month).toBe(before + 2);
     mergeRequests(db, m.id, [a.id, b.id]);
     expect(mm.requests_this_month).toBe(before + 1);
@@ -87,8 +89,8 @@ describe("meeting requests (criterion 5)", () => {
     const m = topFor(db, g);
     const mm = db.mentors.find((x) => x.id === m.id)!;
     mm.group_size_max = 5;
-    const a = createRequest(db, g, m.id, "A");
-    const b = createRequest(db, g, m.id, "B");
+    const a = createRequest(db, g, m.id, "A", NAME);
+    const b = createRequest(db, g, m.id, "B", NAME);
     expect(() => mergeRequests(db, m.id, [a.id, b.id])).toThrow(/above your group limit/);
   });
 });
@@ -144,4 +146,25 @@ describe("playbook (criteria 4 and 8)", () => {
     expect(merged.goal).toBe(base.goal);
     expect(mergeAi(base, null, profile())).toEqual(base);
   });
+});
+
+describe("student name on a request", () => {
+  it("is trimmed, stored on the request, and shown to the mentor's data", () => {
+    const db = fresh();
+    const m = topFor(db, profile());
+    const req = createRequest(db, profile(), m.id, "Hi", "  Sam   Rivera ");
+    expect(req.student_name).toBe("Sam Rivera");
+  });
+
+  it.each(["", "Sam", "   ", "Sam <b>R</b>", "http://x.com y", "sam@x.com Rivera", "Sam R2", "A ".repeat(50)])(
+    "rejects %j and holds no session",
+    (bad) => {
+      const db = fresh();
+      const m = topFor(db, profile());
+      const before = db.mentors.find((x) => x.id === m.id)!.requests_this_month;
+      expect(() => createRequest(db, profile(), m.id, "Hi", bad)).toThrow(RuleError);
+      expect(db.requests).toHaveLength(0);
+      expect(db.mentors.find((x) => x.id === m.id)!.requests_this_month).toBe(before);
+    },
+  );
 });

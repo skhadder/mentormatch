@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const b = await body(req);
     const profile = parseProfile(b.profile);
     if (typeof profile === "string") return fail(profile);
-    const request = mutate((db) => createRequest(db, profile, String(b.mentorId ?? ""), String(b.message ?? "")));
+    const request = mutate((db) => createRequest(db, profile, String(b.mentorId ?? ""), String(b.message ?? ""), String(b.studentName ?? "")));
     return ok({ request: { id: request.id, status: request.status } }, 201);
   });
 }

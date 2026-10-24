@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Icon from "./Icon";
+import { summarizeBreakdown } from "@/lib/breakdown";
 import { offersLine } from "@/lib/format";
 import { HELP_LABELS } from "@/lib/labels";
 import type { Factor, FactorPoints, MatchedFactor, Mentor } from "@/lib/types";
@@ -67,20 +68,38 @@ export default function MentorCard({
           <div><strong>Offers:</strong> {m.help_types.map((h) => HELP_LABELS[h]).join(", ")}</div>
           {m.not_open_to.length > 0 && <div><strong>Not open to:</strong> {m.not_open_to.join("; ")}</div>}
           <div><strong>Meets by:</strong> {m.meeting_channel.replace("_", " ")} · {m.meeting_length_minutes} minutes</div>
-          <div>
-            <strong>Score breakdown</strong> (total {r.score})
-            <table className="mt-2 w-full text-[13px]">
-              <thead><tr className="text-left text-muted"><th className="py-1 font-medium">Factor</th><th className="font-medium">Points</th><th className="font-medium">Out of</th></tr></thead>
-              <tbody>
-                {(Object.keys(FACTOR_LABELS) as Factor[]).map((f) => (
-                  <tr key={f} className="border-t border-line"><td className="py-1">{FACTOR_LABELS[f]}</td><td>{r.breakdown[f].toFixed(1)}</td><td>{r.weights[f].toFixed(1)}</td></tr>
-                ))}
-              </tbody>
-            </table>
-            <p className="hint mt-2">
-              Subtotal {r.baseScore.toFixed(1)} × load-spreading adjustment {r.fairnessMultiplier} = {r.score.toFixed(1)}.
-              Mentors with more requests this month are reduced slightly so a few people aren&apos;t overloaded.
-            </p>
+          <div className="space-y-3">
+            <strong>Score breakdown</strong>
+            <p>{summarizeBreakdown(r.breakdown, r.weights)}</p>
+            <ul className="space-y-2" aria-label="Points per factor">
+              {(Object.keys(FACTOR_LABELS) as Factor[]).filter((f) => r.weights[f] > 0).map((f) => {
+                const pts = Math.round(r.breakdown[f]);
+                const max = Math.round(r.weights[f]);
+                return (
+                  <li key={f} className="text-[13px]">
+                    <div className="flex justify-between"><span>{FACTOR_LABELS[f]}</span><span className="text-muted">{pts} of {max}</span></div>
+                    <div aria-hidden="true" className="mt-1 h-2 overflow-hidden rounded-full bg-surface">
+                      <div className="h-full rounded-full bg-accent" style={{ width: `${Math.min(100, (r.breakdown[f] / r.weights[f]) * 100)}%` }} />
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+            <details className="text-[13px]">
+              <summary className="cursor-pointer font-medium text-accent">See the math</summary>
+              <table className="mt-2 w-full">
+                <thead><tr className="text-left text-muted"><th className="py-1 font-medium">Factor</th><th className="font-medium">Points</th><th className="font-medium">Out of</th></tr></thead>
+                <tbody>
+                  {(Object.keys(FACTOR_LABELS) as Factor[]).map((f) => (
+                    <tr key={f} className="border-t border-line"><td className="py-1">{FACTOR_LABELS[f]}</td><td>{r.breakdown[f].toFixed(1)}</td><td>{r.weights[f].toFixed(1)}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+              <p className="hint mt-2">
+                Subtotal {r.baseScore.toFixed(1)} × load-spreading adjustment {r.fairnessMultiplier} = {r.score.toFixed(1)}.
+                Mentors with more requests this month are reduced slightly so a few people aren&apos;t overloaded.
+              </p>
+            </details>
           </div>
         </div>
       )}

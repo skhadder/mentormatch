@@ -24,8 +24,18 @@ const findMentor = (db: Db, id: string) => {
 
 // Pending requests reserve sessions on the mentor. Sessions this month =
 // sessions per month the plan needs (the full plan is stored on the request).
-export function createRequest(db: Db, profile: StudentProfile, mentorId: string, message: string): MeetingRequest {
+// A real first and last name, so the mentor knows who is asking. Plain text only.
+export function parseStudentName(raw: unknown): string {
+  const name = String(raw ?? "").trim().replace(/\s+/g, " ");
+  if (name.split(" ").length < 2 || name.length < 3) throw new RuleError("Please enter your first and last name.");
+  if (name.length > 80) throw new RuleError("Please keep your name under 80 characters.");
+  if (/[<>@\d]|https?:/i.test(name)) throw new RuleError("Please use letters only in your name (no links, emails or numbers).");
+  return name;
+}
+
+export function createRequest(db: Db, profile: StudentProfile, mentorId: string, message: string, studentName: string): MeetingRequest {
   const mentor = findMentor(db, mentorId);
+  const name = parseStudentName(studentName);
   const text = message.trim();
   if (!text) throw new RuleError("Please write a short message to the mentor first.");
   if (text.length > 1500) throw new RuleError("Please keep your message under 1,500 characters.");
@@ -45,6 +55,7 @@ export function createRequest(db: Db, profile: StudentProfile, mentorId: string,
     months: profile.cadence === "one_time" ? 1 : profile.months,
     sessions_per_month: spm,
     reserved_sessions_total: reservedSessions(profile.cadence, profile.months),
+    student_name: name,
     message: text,
     status: "pending",
     created_at: new Date().toISOString(),

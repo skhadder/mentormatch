@@ -154,7 +154,7 @@ export default function PlaybookPage() {
         </div>
       </section>
 
-      <RequestForm profile={profile} mentor={mentor} startingText={draft} />
+      <RequestForm profile={profile} mentor={mentor} />
     </div>
   );
 }

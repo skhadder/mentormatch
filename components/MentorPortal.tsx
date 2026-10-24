@@ -204,6 +204,7 @@ export default function MentorPortal({ id, onChanged }: { id: string; onChanged:
                 <p className="text-sm font-medium">{MEETING_LABELS[r.meeting_type]}{r.meeting_type === "group" ? ` · ${r.group_size} people` : ""} · {CADENCE_LABELS[r.cadence]}{r.cadence !== "one_time" ? ` for ${r.months} mo` : ""}</p>
                 <span className={`chip ${r.status === "pending" ? "chip-warn" : r.status === "accepted" ? "chip-ok" : "chip-bad"}`}>{r.status}{r.merge_group_id ? " · merged group" : ""}</span>
               </div>
+              <p className="text-sm"><span className="text-muted">From </span><strong>{r.student_name ?? "Name not provided"}</strong></p>
               <p className="whitespace-pre-wrap rounded-lg bg-surface p-3 text-sm">{r.message}</p>
               {r.status === "pending" && (
                 <div className="flex flex-wrap items-center gap-2">

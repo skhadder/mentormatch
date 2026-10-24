@@ -102,6 +102,7 @@ export interface MeetingRequest {
   months: number;
   sessions_per_month: number;
   reserved_sessions_total: number; // sessions per month x months (1 for one_time)
+  student_name?: string; // first and last name; missing on requests created before this field existed
   message: string; // written and sent by the student
   status: RequestStatus;
   created_at: string;

@@ -211,3 +211,20 @@ describe("fairness check", () => {
     expect(report.runs.map((r) => r.differs)).toEqual([false, true]);
   });
 });
+
+describe("summarizeBreakdown", () => {
+  const weights = { field: 30, role: 30, company: 10, path: 25, helpFit: 5 };
+  it("names strong, partial and missing factors", async () => {
+    const { summarizeBreakdown } = await import("@/lib/breakdown");
+    const breakdown = { field: 30, role: 30, company: 0, path: 12, helpFit: 5 };
+    expect(summarizeBreakdown(breakdown, weights)).toBe(
+      "Strong match on field, role and help type. Partial match on path. Not at your target company.",
+    );
+  });
+  it("skips factors the student left blank", async () => {
+    const { summarizeBreakdown } = await import("@/lib/breakdown");
+    const w = { field: 40, role: 0, company: 0, path: 40, helpFit: 20 };
+    expect(summarizeBreakdown({ field: 40, role: 0, company: 0, path: 40, helpFit: 20 }, w))
+      .toBe("Strong match on field, path and help type.");
+  });
+});
