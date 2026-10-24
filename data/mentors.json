@@ -1,0 +1,1098 @@
+[
+  {
+    "id": "m1",
+    "name": "Naomi Stein",
+    "field": "SWE",
+    "role": "Backend Engineer",
+    "company": "Brightloop",
+    "yearsExperience": 8,
+    "path": "switched from CS to product engineering",
+    "careerStagesHelped": [
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "interview prep",
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-08-21",
+    "visible": true
+  },
+  {
+    "id": "m2",
+    "name": "Sanjay Gupta",
+    "field": "SWE",
+    "role": "Staff Engineer",
+    "company": "Brightloop",
+    "yearsExperience": 6,
+    "path": "bootcamp graduate turned senior engineer",
+    "careerStagesHelped": [
+      "targeting"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "choosing a path",
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-02-13",
+    "visible": true
+  },
+  {
+    "id": "m3",
+    "name": "Arjun Mehta",
+    "field": "SWE",
+    "role": "Software Engineer",
+    "company": "Cobalt Systems",
+    "yearsExperience": 15,
+    "path": "former high school teacher who learned to code",
+    "careerStagesHelped": [
+      "targeting",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-09-28",
+    "visible": true
+  },
+  {
+    "id": "m4",
+    "name": "Andre Dupont",
+    "field": "SWE",
+    "role": "Mobile Engineer",
+    "company": "Atlassian",
+    "yearsExperience": 8,
+    "path": "started in IT support and moved into backend",
+    "careerStagesHelped": [
+      "applying",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "choosing a path",
+      "interview prep"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-02-11",
+    "visible": true
+  },
+  {
+    "id": "m5",
+    "name": "Hannah Cohen",
+    "field": "SWE",
+    "role": "Backend Engineer",
+    "company": "Google",
+    "yearsExperience": 6,
+    "path": "self-taught developer with a music degree",
+    "careerStagesHelped": [
+      "interviewing",
+      "targeting",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path",
+      "resume feedback",
+      "understanding the role"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-04-19",
+    "visible": true
+  },
+  {
+    "id": "m6",
+    "name": "Joy Okonkwo",
+    "field": "SWE",
+    "role": "Staff Engineer",
+    "company": "Stripe",
+    "yearsExperience": 4,
+    "path": "CS degree, joined a startup straight out of college",
+    "careerStagesHelped": [
+      "targeting",
+      "interviewing",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 4,
+    "consentAt": "2026-07-27",
+    "visible": true
+  },
+  {
+    "id": "m7",
+    "name": "Noor Rahman",
+    "field": "SWE",
+    "role": "Senior Software Engineer",
+    "company": "Atlassian",
+    "yearsExperience": 6,
+    "path": "switched from CS to product engineering",
+    "careerStagesHelped": [
+      "interviewing",
+      "targeting",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-04-10",
+    "visible": false
+  },
+  {
+    "id": "m8",
+    "name": "Mateo Garcia",
+    "field": "SWE",
+    "role": "Engineering Manager",
+    "company": "Microsoft",
+    "yearsExperience": 12,
+    "path": "bootcamp graduate turned senior engineer",
+    "careerStagesHelped": [
+      "targeting",
+      "interviewing",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "understanding the role"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-03-26",
+    "visible": true
+  },
+  {
+    "id": "m9",
+    "name": "Zara Ahmed",
+    "field": "SWE",
+    "role": "Backend Engineer",
+    "company": "Google",
+    "yearsExperience": 18,
+    "path": "former high school teacher who learned to code",
+    "careerStagesHelped": [
+      "exploring",
+      "targeting",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 4,
+    "consentAt": "2026-04-12",
+    "visible": true
+  },
+  {
+    "id": "m10",
+    "name": "Liam O'Brien",
+    "field": "SWE",
+    "role": "Staff Engineer",
+    "company": "Brightloop",
+    "yearsExperience": 5,
+    "path": "started in IT support and moved into backend",
+    "careerStagesHelped": [
+      "targeting",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-01-12",
+    "visible": true
+  },
+  {
+    "id": "m11",
+    "name": "Dana Schwartz",
+    "field": "PM",
+    "role": "Associate Product Manager",
+    "company": "Pinecrest Software",
+    "yearsExperience": 5,
+    "path": "switched from CS to product",
+    "careerStagesHelped": [
+      "interviewing",
+      "exploring",
+      "targeting"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-08-19",
+    "visible": true
+  },
+  {
+    "id": "m12",
+    "name": "Julia Rossi",
+    "field": "PM",
+    "role": "Senior Product Manager",
+    "company": "Salesforce",
+    "yearsExperience": 3,
+    "path": "former consultant who moved into product",
+    "careerStagesHelped": [
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "understanding the role",
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-06-14",
+    "visible": true
+  },
+  {
+    "id": "m13",
+    "name": "Mei Lin",
+    "field": "PM",
+    "role": "Senior Product Manager",
+    "company": "Salesforce",
+    "yearsExperience": 15,
+    "path": "started in customer support then became a PM",
+    "careerStagesHelped": [
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "interview prep",
+      "resume feedback",
+      "understanding the role"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-09-26",
+    "visible": true
+  },
+  {
+    "id": "m14",
+    "name": "Grace Liu",
+    "field": "PM",
+    "role": "Associate Product Manager",
+    "company": "Meridian Health",
+    "yearsExperience": 8,
+    "path": "ex-engineer who moved to product",
+    "careerStagesHelped": [
+      "targeting",
+      "applying",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-01-10",
+    "visible": true
+  },
+  {
+    "id": "m15",
+    "name": "Avery Brooks",
+    "field": "PM",
+    "role": "Product Manager",
+    "company": "Airbnb",
+    "yearsExperience": 6,
+    "path": "MBA career changer",
+    "careerStagesHelped": [
+      "applying",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "resume feedback",
+      "understanding the role",
+      "choosing a path"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-08-16",
+    "visible": true
+  },
+  {
+    "id": "m16",
+    "name": "Camila Reyes",
+    "field": "PM",
+    "role": "Senior Product Manager",
+    "company": "Pinecrest Software",
+    "yearsExperience": 8,
+    "path": "started as a designer then moved to product",
+    "careerStagesHelped": [
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "resume feedback",
+      "interview prep",
+      "understanding the role"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-03-23",
+    "visible": true
+  },
+  {
+    "id": "m17",
+    "name": "Owen Fitzgerald",
+    "field": "PM",
+    "role": "Senior Product Manager",
+    "company": "Spotify",
+    "yearsExperience": 22,
+    "path": "switched from CS to product",
+    "careerStagesHelped": [
+      "exploring",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-03-28",
+    "visible": true
+  },
+  {
+    "id": "m18",
+    "name": "Ben Kowalski",
+    "field": "Data Science",
+    "role": "Data Scientist",
+    "company": "Quantix",
+    "yearsExperience": 12,
+    "path": "physics PhD who moved into industry",
+    "careerStagesHelped": [
+      "targeting",
+      "applying",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path",
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-03-23",
+    "visible": true
+  },
+  {
+    "id": "m19",
+    "name": "Jonas Berg",
+    "field": "Data Science",
+    "role": "Analytics Manager",
+    "company": "Capital One",
+    "yearsExperience": 5,
+    "path": "switched from biology to data science",
+    "careerStagesHelped": [
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "understanding the role",
+      "choosing a path"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-03-11",
+    "visible": true
+  },
+  {
+    "id": "m20",
+    "name": "Tariq Hassan",
+    "field": "Data Science",
+    "role": "Senior Data Scientist",
+    "company": "Quantix",
+    "yearsExperience": 8,
+    "path": "self-taught analyst from a finance background",
+    "careerStagesHelped": [
+      "interviewing",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "interview prep"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-01-14",
+    "visible": true
+  },
+  {
+    "id": "m21",
+    "name": "Isaac Goldberg",
+    "field": "Data Science",
+    "role": "Analytics Manager",
+    "company": "Netflix",
+    "yearsExperience": 4,
+    "path": "statistics degree, always worked in data",
+    "careerStagesHelped": [
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "interview prep",
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-04-16",
+    "visible": false
+  },
+  {
+    "id": "m22",
+    "name": "Tasha Williams",
+    "field": "Data Science",
+    "role": "Analytics Manager",
+    "company": "Quantix",
+    "yearsExperience": 6,
+    "path": "former journalist who learned data analysis",
+    "careerStagesHelped": [
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "interview prep",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-09-16",
+    "visible": true
+  },
+  {
+    "id": "m23",
+    "name": "Paul Anderson",
+    "field": "Data Science",
+    "role": "Senior Data Scientist",
+    "company": "Capital One",
+    "yearsExperience": 6,
+    "path": "started in operations and moved into analytics",
+    "careerStagesHelped": [
+      "interviewing",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "understanding the role"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-02-22",
+    "visible": true
+  },
+  {
+    "id": "m24",
+    "name": "Tunde Adeyemi",
+    "field": "Data Science",
+    "role": "Data Scientist",
+    "company": "Databricks",
+    "yearsExperience": 12,
+    "path": "physics PhD who moved into industry",
+    "careerStagesHelped": [
+      "exploring",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-06-14",
+    "visible": true
+  },
+  {
+    "id": "m25",
+    "name": "Nate Peterson",
+    "field": "UX Design",
+    "role": "Senior UX Designer",
+    "company": "Figma",
+    "yearsExperience": 6,
+    "path": "art history major turned designer",
+    "careerStagesHelped": [
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-07-26",
+    "visible": true
+  },
+  {
+    "id": "m26",
+    "name": "Samira Haddad",
+    "field": "UX Design",
+    "role": "Interaction Designer",
+    "company": "Airbnb",
+    "yearsExperience": 10,
+    "path": "switched from architecture to UX",
+    "careerStagesHelped": [
+      "interviewing",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-01-22",
+    "visible": true
+  },
+  {
+    "id": "m27",
+    "name": "Kwame Mensah",
+    "field": "UX Design",
+    "role": "Design Lead",
+    "company": "Adobe",
+    "yearsExperience": 8,
+    "path": "self-taught designer from a retail job",
+    "careerStagesHelped": [
+      "applying",
+      "interviewing",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-03-18",
+    "visible": true
+  },
+  {
+    "id": "m28",
+    "name": "Ravi Menon",
+    "field": "UX Design",
+    "role": "Design Lead",
+    "company": "Adobe",
+    "yearsExperience": 4,
+    "path": "graphic designer who moved into product design",
+    "careerStagesHelped": [
+      "applying",
+      "targeting"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-03-23",
+    "visible": true
+  },
+  {
+    "id": "m29",
+    "name": "Alma Torres",
+    "field": "UX Design",
+    "role": "Design Lead",
+    "company": "Adobe",
+    "yearsExperience": 3,
+    "path": "community college path into design",
+    "careerStagesHelped": [
+      "exploring",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-08-10",
+    "visible": true
+  },
+  {
+    "id": "m30",
+    "name": "Yuki Tanaka",
+    "field": "UX Design",
+    "role": "Product Designer",
+    "company": "Figma",
+    "yearsExperience": 8,
+    "path": "started as a front-end developer",
+    "careerStagesHelped": [
+      "interviewing",
+      "targeting",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-04-19",
+    "visible": true
+  },
+  {
+    "id": "m31",
+    "name": "Beth Mitchell",
+    "field": "UX Research",
+    "role": "UX Researcher",
+    "company": "Meta",
+    "yearsExperience": 22,
+    "path": "psychology degree turned researcher",
+    "careerStagesHelped": [
+      "targeting",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-01-26",
+    "visible": true
+  },
+  {
+    "id": "m32",
+    "name": "Chloe Dubois",
+    "field": "UX Research",
+    "role": "Research Operations Lead",
+    "company": "Fieldnote Co",
+    "yearsExperience": 15,
+    "path": "former anthropologist working in tech",
+    "careerStagesHelped": [
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "choosing a path"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 4,
+    "consentAt": "2026-07-26",
+    "visible": true
+  },
+  {
+    "id": "m33",
+    "name": "Lena Fischer",
+    "field": "UX Research",
+    "role": "Senior UX Researcher",
+    "company": "Meta",
+    "yearsExperience": 6,
+    "path": "switched from nursing to UX research",
+    "careerStagesHelped": [
+      "targeting",
+      "exploring",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "understanding the role"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-02-18",
+    "visible": false
+  },
+  {
+    "id": "m34",
+    "name": "Anika Sharma",
+    "field": "UX Research",
+    "role": "Senior UX Researcher",
+    "company": "Oakridge Insights",
+    "yearsExperience": 10,
+    "path": "sociology grad who started in market research",
+    "careerStagesHelped": [
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "interview prep"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-01-24",
+    "visible": true
+  },
+  {
+    "id": "m35",
+    "name": "Peter Novak",
+    "field": "UX Research",
+    "role": "Research Manager",
+    "company": "Microsoft",
+    "yearsExperience": 4,
+    "path": "started as a survey analyst",
+    "careerStagesHelped": [
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "resume feedback",
+      "interview prep"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-01-19",
+    "visible": true
+  },
+  {
+    "id": "m36",
+    "name": "Marcus Reed",
+    "field": "Marketing",
+    "role": "Growth Marketer",
+    "company": "HubSpot",
+    "yearsExperience": 5,
+    "path": "English major turned content strategist",
+    "careerStagesHelped": [
+      "targeting",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-09-10",
+    "visible": true
+  },
+  {
+    "id": "m37",
+    "name": "Olivia Hart",
+    "field": "Marketing",
+    "role": "Growth Marketer",
+    "company": "Nike",
+    "yearsExperience": 3,
+    "path": "former event planner now in growth marketing",
+    "careerStagesHelped": [
+      "exploring",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "resume feedback",
+      "understanding the role"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-09-14",
+    "visible": true
+  },
+  {
+    "id": "m38",
+    "name": "Imani Johnson",
+    "field": "Marketing",
+    "role": "Marketing Associate",
+    "company": "Patagonia",
+    "yearsExperience": 22,
+    "path": "started in sales then moved to brand",
+    "careerStagesHelped": [
+      "interviewing",
+      "targeting",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "understanding the role"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-07-26",
+    "visible": true
+  },
+  {
+    "id": "m39",
+    "name": "Rosa Delgado",
+    "field": "Marketing",
+    "role": "Brand Marketing Manager",
+    "company": "Mailchimp",
+    "yearsExperience": 4,
+    "path": "self-taught marketer from a nonprofit",
+    "careerStagesHelped": [
+      "exploring",
+      "applying",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "understanding the role"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-08-27",
+    "visible": true
+  },
+  {
+    "id": "m40",
+    "name": "Rob Campbell",
+    "field": "Marketing",
+    "role": "Marketing Associate",
+    "company": "Sunrise Media",
+    "yearsExperience": 2,
+    "path": "communications degree, agency to in-house",
+    "careerStagesHelped": [
+      "exploring",
+      "applying",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 1,
+    "consentAt": "2026-02-26",
+    "visible": true
+  },
+  {
+    "id": "m41",
+    "name": "Omar Farouk",
+    "field": "Marketing",
+    "role": "Marketing Director",
+    "company": "Mailchimp",
+    "yearsExperience": 3,
+    "path": "switched from journalism to marketing",
+    "careerStagesHelped": [
+      "interviewing",
+      "targeting",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "interview prep",
+      "choosing a path"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-02-25",
+    "visible": true
+  },
+  {
+    "id": "m42",
+    "name": "Hiro Sato",
+    "field": "Finance",
+    "role": "Finance Manager",
+    "company": "Fidelity",
+    "yearsExperience": 22,
+    "path": "math major, started in banking",
+    "careerStagesHelped": [
+      "exploring",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "resume feedback",
+      "choosing a path",
+      "interview prep",
+      "understanding the role"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-03-10",
+    "visible": true
+  },
+  {
+    "id": "m43",
+    "name": "Elena Petrova",
+    "field": "Finance",
+    "role": "Finance Manager",
+    "company": "Fidelity",
+    "yearsExperience": 12,
+    "path": "former teacher who moved into finance",
+    "careerStagesHelped": [
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "interview prep",
+      "understanding the role"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-05-24",
+    "visible": true
+  },
+  {
+    "id": "m44",
+    "name": "Ingrid Larsen",
+    "field": "Finance",
+    "role": "Investment Associate",
+    "company": "Ironwood Capital",
+    "yearsExperience": 12,
+    "path": "community college path to analyst",
+    "careerStagesHelped": [
+      "exploring",
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 5,
+    "consentAt": "2026-02-26",
+    "visible": true
+  },
+  {
+    "id": "m45",
+    "name": "Fatima Al-Sayed",
+    "field": "Nonprofit",
+    "role": "Development Director",
+    "company": "Habitat for Humanity",
+    "yearsExperience": 12,
+    "path": "social work degree to program leadership",
+    "careerStagesHelped": [
+      "interviewing",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "interview prep"
+    ],
+    "monthlyLimit": 2,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-03-26",
+    "visible": true
+  },
+  {
+    "id": "m46",
+    "name": "Kenji Watanabe",
+    "field": "Nonprofit",
+    "role": "Program Manager",
+    "company": "Riverbend Foundation",
+    "yearsExperience": 6,
+    "path": "former software engineer who moved to nonprofit work",
+    "careerStagesHelped": [
+      "applying"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-08-24",
+    "visible": true
+  },
+  {
+    "id": "m47",
+    "name": "Vikram Joshi",
+    "field": "Healthcare",
+    "role": "Health Policy Analyst",
+    "company": "Cedar Valley Hospital",
+    "yearsExperience": 10,
+    "path": "nurse who moved into health operations",
+    "careerStagesHelped": [
+      "targeting",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "understanding the role",
+      "resume feedback",
+      "choosing a path"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 0,
+    "consentAt": "2026-07-13",
+    "visible": false
+  },
+  {
+    "id": "m48",
+    "name": "Carlos Ortega",
+    "field": "Healthcare",
+    "role": "Clinical Operations Manager",
+    "company": "Cedar Valley Hospital",
+    "yearsExperience": 5,
+    "path": "public health grad into policy",
+    "careerStagesHelped": [
+      "exploring",
+      "applying",
+      "targeting"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 5,
+    "requestsThisMonth": 4,
+    "consentAt": "2026-07-18",
+    "visible": true
+  },
+  {
+    "id": "m49",
+    "name": "Diego Santos",
+    "field": "Education",
+    "role": "Learning Experience Designer",
+    "company": "Coursera",
+    "yearsExperience": 2,
+    "path": "former teacher turned instructional designer",
+    "careerStagesHelped": [
+      "exploring",
+      "interviewing"
+    ],
+    "topicsOpenTo": [
+      "interview prep",
+      "understanding the role",
+      "choosing a path",
+      "resume feedback"
+    ],
+    "monthlyLimit": 4,
+    "requestsThisMonth": 3,
+    "consentAt": "2026-06-23",
+    "visible": true
+  },
+  {
+    "id": "m50",
+    "name": "Leila Karimi",
+    "field": "Education",
+    "role": "Learning Experience Designer",
+    "company": "Coursera",
+    "yearsExperience": 2,
+    "path": "started in tutoring and moved into edtech",
+    "careerStagesHelped": [
+      "interviewing",
+      "applying",
+      "exploring"
+    ],
+    "topicsOpenTo": [
+      "choosing a path",
+      "understanding the role",
+      "resume feedback",
+      "interview prep"
+    ],
+    "monthlyLimit": 3,
+    "requestsThisMonth": 2,
+    "consentAt": "2026-09-14",
+    "visible": true
+  }
+]
