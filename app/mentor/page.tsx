@@ -1,5 +1,6 @@
 "use client";
 
+import Icon from "@/components/Icon";
 import { useCallback, useEffect, useState } from "react";
 import MentorPortal from "@/components/MentorPortal";
 import { api, getMentorId, setMentorId } from "@/lib/client";
@@ -24,6 +25,11 @@ export default function MentorPage() {
 
   return (
     <div className="wrap wrap-md space-y-5">
+      {id && (
+        <button className="btn-link !pl-0" onClick={() => choose(null)}>
+          <Icon name="arrow-right" size={13} className="rotate-180" />Back
+        </button>
+      )}
       <div className="space-y-2">
         <p className="eyebrow">Mentor portal</p>
         <h1 className="text-3xl">{id ? "Your mentor portal" : "Which profile is you?"}</h1>

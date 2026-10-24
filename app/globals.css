@@ -14,6 +14,12 @@
   --line: #e0ded9;
   --card: #ffffff;
   --danger: #b43b28;
+  /* Warm secondary accent, used sparingly. Text on it is always dark brown (#2b1b04 on #E9A23B is ~8:1). */
+  --warm: #E9A23B;
+  --warm-soft: #fdf3e0;
+  --warm-line: #f0cf94;
+  --warm-text: #6b4308;
+  --warm-ink: #2b1b04;
   --warn-bg: #fdf5eb;
   --warn-text: #8a4a1c;
   --radius: 0.75rem;
@@ -82,6 +88,7 @@ h1, h2, h3 { letter-spacing: -0.02em; font-weight: 600; }
     border-radius: 999px; background: #f3f6f6; border: 1px solid var(--accent-line); color: var(--accent);
     font-size: .75rem; font-weight: 500;
   }
+  .chip-factor { background: var(--warm-soft); border-color: var(--warm-line); color: var(--warm-text); }
   .chip-warn { background: var(--warn-bg); border-color: #f3dfc6; color: var(--warn-text); }
   .chip-ok { background: #eef6ee; border-color: #cfe5d0; color: #2d6a32; }
   .chip-bad { background: #fbeeec; border-color: #f0cdc8; color: var(--danger); }

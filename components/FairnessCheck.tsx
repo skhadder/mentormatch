@@ -44,7 +44,7 @@ export default function FairnessCheck() {
           </div>
           <p
             role="status"
-            className={`rounded-xl border px-4 py-3 text-sm font-semibold ${report.pass ? "border-[#cfe5d0] bg-[#eef6ee] text-[#2d6a32]" : "border-[#f0cdc8] bg-[#fbeeec] text-danger"}`}
+            className={`rounded-xl border px-4 py-3 text-sm font-semibold ${report.pass ? "border-[var(--warm-line)] bg-[var(--warm-soft)] text-[var(--warm-text)]" : "border-[#f0cdc8] bg-[#fbeeec] text-danger"}`}
           >
             {report.pass ? "PASS: every run returned the same mentors with the same scores." : "FAIL: results changed when only the name changed."}
           </p>

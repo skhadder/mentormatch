@@ -45,7 +45,7 @@ export default function MentorCard({
       </div>
 
       <ul className="flex flex-wrap gap-1.5" aria-label="What matched">
-        {r.matched.map((c) => <li key={c.key} className="chip">{c.label}</li>)}
+        {r.matched.map((c) => <li key={c.key} className="chip chip-factor">{c.label}</li>)}
       </ul>
 
       <div className="space-y-1 border-t border-line pt-3 text-xs text-muted">

@@ -14,11 +14,46 @@ const PROMISES: [string, string][] = [
   ["Human control", "AI suggests and prepares. You pick the mentor, edit the words, and send every message."],
 ];
 
+const HONEST: [IconName, string, string][] = [
+  ["compass", "Hackathon prototype", "Built for SpartHill Hacks 2026."],
+  ["shield", "50 fictional mentors", "Every profile is synthetic, and no real person is contacted."],
+  ["sliders", "Real, testable matching", "The scoring is plain code you can check on the fairness page."],
+  ["sparkles", "AI is optional", "It only writes explanations and playbooks, and the app works without it."],
+];
+
+// Static, fictional preview that mirrors the layout of the real MentorCard.
+function ExampleMatch() {
+  return (
+    <aside className="card space-y-3.5" aria-label="Example match, not a real mentor">
+      <p className="eyebrow !text-[0.65rem]">Example match</p>
+      <div className="flex items-start justify-between gap-3">
+        <div>
+          <h2 className="text-lg">Senior Product Manager</h2>
+          <p className="text-[13px] text-muted">Northwind Labs · 9 years in Product Management</p>
+          <p className="text-xs text-muted">Fictional example, not a real person</p>
+        </div>
+        <span className="chip !min-h-7 shrink-0 !text-[13px]">Match 86</span>
+      </div>
+      <p className="text-sm">
+        <span className="font-semibold">Why this match: </span>
+        Works in Product Management and has done the Product Manager role, and offers resume review and mock interviews to students who are applying.
+      </p>
+      <ul className="flex flex-wrap gap-1.5" aria-label="What matched">
+        {["Field", "Role", "Help fit", "Path overlap"].map((f) => <li key={f} className="chip chip-factor">{f}</li>)}
+      </ul>
+      <div className="border-t border-line pt-3 text-xs text-muted">
+        <p>Sessions left this month: 3 of 4</p>
+      </div>
+    </aside>
+  );
+}
+
 export default function Home() {
   return (
     <div className="-my-8 sm:-my-12">
       <section className="paper border-b border-line py-14 sm:py-20">
-        <div className="wrap wrap-lg space-y-5">
+        <div className="wrap wrap-lg grid items-center gap-10 lg:grid-cols-[1.15fr_1fr]">
+          <div className="space-y-5">
           <p className="eyebrow">Mentorship, matched on purpose</p>
           <h1 className="max-w-2xl text-4xl leading-[1.1] sm:text-5xl">Find the mentor who fits, and walk in knowing what to ask.</h1>
           <p className="max-w-xl text-muted">
@@ -30,17 +65,19 @@ export default function Home() {
             <Link href="/fair" className="btn btn-secondary">How this stays fair</Link>
           </div>
           <p className="text-xs text-muted">No account needed to see matches. The demo pool holds 50 fictional mentors.</p>
+          </div>
+          <ExampleMatch />
         </div>
       </section>
 
-      <section className="border-b border-line py-12" aria-labelledby="how">
+      <section className="border-b border-line bg-[#f1f6f6] py-12" aria-labelledby="how">
         <div className="wrap wrap-lg space-y-5">
           <h2 id="how" className="eyebrow !font-semibold">How it works</h2>
           <div className="grid gap-3 sm:grid-cols-3">
             {STEPS.map(([icon, step, title, text]) => (
               <div key={step} className="card space-y-3">
                 <div className="flex items-center gap-2 text-xs text-muted">
-                  <span className="inline-flex size-8 items-center justify-center rounded-full bg-surface text-accent"><Icon name={icon} size={15} /></span>
+                  <span className="inline-flex size-8 items-center justify-center rounded-full bg-[var(--warm)] text-[var(--warm-ink)]"><Icon name={icon} size={15} /></span>
                   {step}
                 </div>
                 <h3 className="text-base">{title}</h3>
@@ -73,14 +110,22 @@ export default function Home() {
 
       <section className="py-12">
         <div className="wrap wrap-lg">
-          <div className="callout !bg-[#f2f5f5] space-y-3 !p-6">
-            <h2 className="flex items-center gap-2 text-base"><Icon name="sparkles" size={16} className="text-accent" />Honest about what this is</h2>
-            <p className="max-w-2xl text-sm text-muted">
-              MentorMatch is a hackathon prototype. The mentor pool is 50 fictional profiles, each labelled synthetic, and no real person
-              receives anything from this app. The matching is real code you can inspect and test on the fairness page. The AI only writes
-              the explanation and the playbook, and the whole app still works if it is switched off.
-            </p>
-            <Link href="/find" className="btn btn-secondary">Try the intake</Link>
+          <div className="callout !bg-[#f2f5f5] space-y-5 !p-6">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <h2 className="flex items-center gap-2 text-base"><Icon name="sparkles" size={16} className="text-accent" />Honest about what this is</h2>
+              <Link href="/find" className="btn btn-secondary self-start sm:self-auto">Try the intake</Link>
+            </div>
+            <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {HONEST.map(([icon, title, text]) => (
+                <li key={title} className="flex gap-3">
+                  <span aria-hidden="true" className="inline-flex size-8 shrink-0 items-center justify-center rounded-full bg-white text-accent"><Icon name={icon} size={15} /></span>
+                  <div>
+                    <h3 className="text-sm">{title}</h3>
+                    <p className="mt-0.5 text-[13px] text-muted">{text}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
